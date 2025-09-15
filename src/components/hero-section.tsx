@@ -14,13 +14,17 @@ export const HeroSection: React.FC = () => {
     <>
       {/* First Banner - Welcome/Impressive Banner */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+        {/* Background Video with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage}
-            alt="Professional teeth whitening - beautiful smile with White Angel treatment"
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="/src/assets/hero-video.mov" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 overlay-gradient" />
         </div>
 
@@ -29,9 +33,11 @@ export const HeroSection: React.FC = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             {/* Brand Logo */}
             <div className="mb-8">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.2em] mb-4">
-                WHITE ANGEL
-              </h1>
+              <img 
+                src="/src/assets/white-angel-logo.png" 
+                alt="White Angel Professional Teeth Whitening"
+                className="h-20 md:h-24 lg:h-28 mx-auto mb-6"
+              />
               <div className="w-24 h-px bg-white/60 mx-auto mb-6"></div>
               <p className="text-sm md:text-base tracking-[0.15em] font-light uppercase text-white/80">
                 Professional Teeth Whitening

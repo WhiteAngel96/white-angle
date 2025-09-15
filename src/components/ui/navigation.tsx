@@ -46,9 +46,11 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              White Angel
-            </div>
+            <img 
+              src="/src/assets/white-angel-logo.png" 
+              alt="White Angel"
+              className="h-8 md:h-10"
+            />
           </Link>
 
           {/* Desktop Navigation */}
