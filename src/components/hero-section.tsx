@@ -23,46 +23,41 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 overlay-gradient" />
       </div>
 
-      {/* Content */}
+      {/* Content - Ralph Lauren Style */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
-            White Angel
-          </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-light max-w-3xl mx-auto leading-relaxed">
-            Professional Teeth Whitening
-          </p>
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-white/90">
-            Experience the ultimate in professional teeth whitening technology. 
-            Achieve brilliant, lasting results with our advanced whitening solutions.
-          </p>
+          {/* Brand Logo */}
+          <div className="mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.2em] mb-4">
+              WHITE ANGEL
+            </h1>
+            <div className="w-24 h-px bg-white/60 mx-auto mb-6"></div>
+            <p className="text-sm md:text-base tracking-[0.15em] font-light uppercase text-white/80">
+              Professional Teeth Whitening
+            </p>
+          </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button asChild variant="hero" size="lg" className="group">
+          {/* Main Collection Text */}
+          <div className="mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-6">
+              SPRING 2025 COLLECTION
+            </h2>
+          </div>
+          
+          {/* CTA Buttons - Ralph Lauren Style */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button asChild variant="outline" size="lg" className="min-w-[180px] border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
               <Link to="/about">
-                About Us
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                DISCOVER MORE
               </Link>
             </Button>
             
-            <Button asChild variant="glass" size="lg" className="group">
+            <Button asChild variant="ghost" size="lg" className="min-w-[180px] text-white border border-white/30 hover:bg-white/10 transition-all duration-300">
               <Link to="/find-location">
-                Find White Angel Near You
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                FIND LOCATIONS
               </Link>
             </Button>
           </div>
-        </div>
-
-        {/* Video Play Button (Placeholder for future video integration) */}
-        <div className={`mt-16 transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <button 
-            className="mx-auto flex items-center justify-center w-20 h-20 rounded-full glass-effect hover:scale-110 transition-all duration-300 group"
-            aria-label="Play introduction video"
-          >
-            <Play className="w-8 h-8 text-white ml-1 group-hover:scale-110 transition-transform" />
-          </button>
-          <p className="mt-4 text-white/80 text-sm">Watch Our Introduction</p>
         </div>
       </div>
 
