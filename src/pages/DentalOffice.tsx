@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Home, Building2, Lightbulb, Shield, Stethoscope } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const DentalOffice = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -128,9 +129,11 @@ const DentalOffice = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full">
-                  Learn More
-                </Button>
+                <Link to="/products/home-kit-20">
+                  <Button variant="outline" className="w-full">
+                    Learn More
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>
@@ -161,9 +164,11 @@ const DentalOffice = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="cta" className="w-full">
-                  Request Info
-                </Button>
+                <Link to={product.name === 'White Angel Extra 46%' ? '/products/white-angel-extra-46' : '#'}>
+                  <Button variant="cta" className="w-full">
+                    Request Info
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>

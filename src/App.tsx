@@ -10,6 +10,8 @@ import DentalOffice from "./pages/DentalOffice";
 import Distributions from "./pages/Distributions";
 import FindLocationPage from "./pages/FindLocationPage";
 import NotFound from "./pages/NotFound";
+import HomeKit20 from "./pages/products/HomeKit20";
+import WhiteAngelExtra46 from "./pages/products/WhiteAngelExtra46";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/dental-office" element={<DentalOffice />} />
           <Route path="/distributions" element={<Distributions />} />
           <Route path="/find-location" element={<FindLocationPage />} />
+          <Route path="/products/home-kit-20" element={<HomeKit20 />} />
+          <Route path="/products/white-angel-extra-46" element={<WhiteAngelExtra46 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
