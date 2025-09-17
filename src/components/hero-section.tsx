@@ -71,14 +71,17 @@ export const HeroSection: React.FC = () => {
 
       {/* Second Banner - About Us Video Banner */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+        {/* Background Video with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage}
-            alt="About White Angel - Professional teeth whitening expertise"
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
             className="w-full h-full object-cover"
-            style={{ filter: 'sepia(20%) saturate(80%)' }}
-          />
+          >
+            <source src="/src/assets/lifestyle-video.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-primary/60" />
         </div>
 
