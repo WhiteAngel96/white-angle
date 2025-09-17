@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import israelFlag from '@/assets/israel-flag.png';
+import usFlag from '@/assets/us-flag.png';
 
 interface NavigationProps {
   isScrolled?: boolean;
@@ -10,6 +13,7 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const { toggleLanguage, isHebrew } = useLanguage();
 
   const navItems = [
     { 
@@ -86,20 +90,55 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
                 )}
               </div>
             ))}
+            
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 hover:bg-white/10 ${
+                isScrolled ? 'hover:bg-primary/10' : 'hover:bg-white/10'
+              }`}
+              aria-label={`Switch to ${isHebrew ? 'English' : 'Hebrew'}`}
+            >
+              <img 
+                src={isHebrew ? usFlag : israelFlag}
+                alt={isHebrew ? 'Switch to English' : 'Switch to Hebrew'}
+                className="w-6 h-4 object-cover rounded-sm"
+              />
+              <span className={`text-xs font-medium ${
+                isScrolled ? 'text-primary' : 'text-white'
+              }`}>
+                {isHebrew ? 'EN' : 'עב'}
+              </span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md hover:bg-background/10 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-            ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center space-x-3">
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-md hover:bg-background/10 transition-colors"
+              aria-label={`Switch to ${isHebrew ? 'English' : 'Hebrew'}`}
+            >
+              <img 
+                src={isHebrew ? usFlag : israelFlag}
+                alt={isHebrew ? 'Switch to English' : 'Switch to Hebrew'}
+                className="w-6 h-4 object-cover rounded-sm"
+              />
+            </button>
+            
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-md hover:bg-background/10 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+              ) : (
+                <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
