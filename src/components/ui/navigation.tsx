@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import israelFlag from '@/assets/israel-flag.png';
 import usFlag from '@/assets/us-flag.png';
 
@@ -14,29 +15,30 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { toggleLanguage, isHebrew } = useLanguage();
+  const { t } = useTranslation();
 
   const navItems = [
     { 
-      label: 'For Dental Office', 
+      label: t('nav.forDentalOffice'), 
       href: '/dental-office',
       dropdown: [
-        { label: 'Take Home Products', href: '/dental-office#take-home' },
-        { label: 'In-Office Products', href: '/dental-office#in-office' },
-        { label: 'Other Products', href: '/dental-office#other' }
+        { label: t('nav.takeHomeProducts'), href: '/dental-office#take-home' },
+        { label: t('nav.inOfficeProducts'), href: '/dental-office#in-office' },
+        { label: t('nav.otherProducts'), href: '/dental-office#other' }
       ]
     },
     { 
-      label: 'For Patients', 
+      label: t('nav.forPatients'), 
       href: '/patients',
       dropdown: [
-        { label: 'Clinic Whitening', href: '/patients#clinic' },
-        { label: 'Home Kit', href: '/patients#home-kit' },
-        { label: 'Desensitizer', href: '/patients#desensitizer' },
-        { label: 'Strips', href: '/patients#strips' }
+        { label: t('nav.clinicWhitening'), href: '/patients#clinic' },
+        { label: t('nav.homeKit'), href: '/patients#home-kit' },
+        { label: t('nav.desensitizer'), href: '/patients#desensitizer' },
+        { label: t('nav.strips'), href: '/patients#strips' }
       ]
     },
-    { label: 'About', href: '/about' },
-    { label: 'Find White Angel Near You', href: '/find-location' }
+    { label: t('nav.about'), href: '/about' },
+    { label: t('nav.findLocation'), href: '/find-location' }
   ];
 
   return (

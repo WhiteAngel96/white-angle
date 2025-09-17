@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 import heroImage from '@/assets/hero-image.jpg';
 
 export const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -40,14 +42,14 @@ export const HeroSection: React.FC = () => {
               />
               <div className="w-24 h-px bg-white/60 mx-auto mb-6"></div>
               <p className="text-sm md:text-base tracking-[0.15em] font-light uppercase text-white/80">
-                Professional Teeth Whitening
+                {t('hero.tagline')}
               </p>
             </div>
             
             {/* Main Collection Text */}
             <div className="mb-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-6">
-                SPRING 2025 COLLECTION
+                {t('hero.collection')}
               </h2>
             </div>
             
@@ -55,13 +57,13 @@ export const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button asChild variant="outline" size="lg" className="min-w-[180px] border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
                 <Link to="/about">
-                  DISCOVER MORE
+                  {t('hero.discoverMore')}
                 </Link>
               </Button>
               
               <Button asChild variant="ghost" size="lg" className="min-w-[180px] text-white border border-white/30 hover:bg-white/10 transition-all duration-300">
                 <Link to="/find-location">
-                  FIND LOCATIONS
+                  {t('hero.findLocations')}
                 </Link>
               </Button>
             </div>
@@ -90,17 +92,16 @@ export const HeroSection: React.FC = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-6">
-                OUR STORY
+                {t('hero.ourStory')}
               </h2>
               <div className="w-20 h-px bg-white/60 mx-auto mb-8"></div>
               <p className="text-lg md:text-xl font-light mb-10 leading-relaxed tracking-wide">
-                Discover the science and passion behind White Angel's revolutionary 
-                teeth whitening technology that transforms smiles worldwide.
+                {t('hero.storyDescription')}
               </p>
               
               <Button asChild variant="outline" size="lg" className="min-w-[200px] border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
                 <Link to="/about">
-                  LEARN ABOUT US
+                  {t('hero.learnAboutUs')}
                 </Link>
               </Button>
             </div>

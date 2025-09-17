@@ -2,8 +2,10 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export const SecondaryHero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-0">
       <div className="grid lg:grid-cols-2 h-screen">

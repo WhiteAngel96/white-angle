@@ -107,6 +107,11 @@
   body {
     @apply bg-background text-foreground font-assistant;
   }
+  
+  /* Hebrew font support */
+  .font-hebrew {
+    font-family: 'Arial', 'Tahoma', sans-serif;
+  }
 }
 
 @layer utilities {
