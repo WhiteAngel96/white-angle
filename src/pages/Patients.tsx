@@ -27,6 +27,18 @@ const Patients = () => {
     { id: 'strips', label: 'Strips', icon: Zap }
   ];
 
+  const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 120; // Account for sticky navigation
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
@@ -34,21 +46,23 @@ const Patients = () => {
       {/* Sticky Navigation */}
       <div className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4">
-          <nav className="flex overflow-x-auto py-4">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveSection(item.id)}
-                className={`flex items-center space-x-2 px-6 py-2 rounded-full whitespace-nowrap transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-primary text-white'
-                    : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
-                }`}
-              >
-                <item.icon className="w-4 h-4" />
-                <span>{item.label}</span>
-              </button>
-            ))}
+          <nav className="flex justify-center py-4">
+            <div className="flex space-x-2 bg-background/50 backdrop-blur-sm rounded-full p-2 border border-border/50">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-full whitespace-nowrap transition-all duration-300 ${
+                    activeSection === item.id
+                      ? 'bg-primary text-primary-foreground shadow-md'
+                      : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
+                  }`}
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              ))}
+            </div>
           </nav>
         </div>
       </div>
