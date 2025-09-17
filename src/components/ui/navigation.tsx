@@ -12,7 +12,6 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const navItems = [
-    { label: 'Home', href: '/' },
     { 
       label: 'For Dental Office', 
       href: '/dental-office',
@@ -49,7 +48,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
             <img 
               src="/src/assets/white-angel-logo.png" 
               alt="White Angel"
-              className="h-8 md:h-10"
+              className="h-12 md:h-16"
             />
           </Link>
 
@@ -65,7 +64,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
                 <Link
                   to={item.href}
                   className={`flex items-center space-x-1 font-medium transition-colors hover:text-primary ${
-                    isScrolled ? 'text-foreground' : 'text-white'
+                    isScrolled ? 'text-primary' : 'text-white'
                   }`}
                 >
                   <span>{item.label}</span>

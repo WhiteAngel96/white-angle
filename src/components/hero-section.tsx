@@ -36,7 +36,7 @@ export const HeroSection: React.FC = () => {
               <img 
                 src="/src/assets/white-angel-logo.png" 
                 alt="White Angel Professional Teeth Whitening"
-                className="h-20 md:h-24 lg:h-28 mx-auto mb-6"
+                className="h-24 md:h-28 lg:h-32 mx-auto mb-6"
               />
               <div className="w-24 h-px bg-white/60 mx-auto mb-6"></div>
               <p className="text-sm md:text-base tracking-[0.15em] font-light uppercase text-white/80">
