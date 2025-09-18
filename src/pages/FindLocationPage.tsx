@@ -19,7 +19,7 @@ const FindLocationPage = () => {
       <Navigation isScrolled={isScrolled} />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
+      <section className="pt-24 pb-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center animate-fade-up">
             <h1 className="text-5xl md:text-6xl font-bold text-navy mb-6">
