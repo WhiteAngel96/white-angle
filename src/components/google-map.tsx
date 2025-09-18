@@ -144,13 +144,17 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
                 >
                   {/* Pin Shape */}
                   <div className="relative">
-                    <div className="w-6 h-8 bg-primary rounded-t-full rounded-b-sm border-2 border-white shadow-lg">
-                      <div className="absolute top-1 left-1/2 w-2 h-2 bg-white rounded-full transform -translate-x-1/2" />
+                    {/* Main pin body - rounded top, pointed bottom */}
+                    <div className="relative w-8 h-10">
+                      {/* Pin circle */}
+                      <div className="w-8 h-8 bg-blue-500 rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full" />
+                      </div>
+                      {/* Pin point */}
+                      <div className="absolute top-6 left-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-blue-500 transform -translate-x-1/2" />
                     </div>
-                    {/* Pin tip */}
-                    <div className="absolute -bottom-1 left-1/2 w-0 h-0 border-l-2 border-r-2 border-t-4 border-transparent border-t-primary transform -translate-x-1/2" />
                     {/* Pulse animation */}
-                    <div className="absolute top-0 left-0 w-6 h-6 bg-primary/30 rounded-full animate-ping" />
+                    <div className="absolute top-0 left-0 w-8 h-8 bg-blue-500/30 rounded-full animate-ping" />
                   </div>
                 </div>
               );
@@ -205,10 +209,12 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
       <div className="mt-4 flex flex-wrap gap-4 text-sm">
         <div className="flex items-center gap-2">
           <div className="relative">
-            <div className="w-4 h-5 bg-primary rounded-t-full rounded-b-sm border border-white shadow-sm">
-              <div className="absolute top-0.5 left-1/2 w-1.5 h-1.5 bg-white rounded-full transform -translate-x-1/2" />
+            <div className="w-5 h-6 relative">
+              <div className="w-5 h-5 bg-blue-500 rounded-full border border-white shadow-sm flex items-center justify-center">
+                <div className="w-2 h-2 bg-white rounded-full" />
+              </div>
+              <div className="absolute top-4 left-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-blue-500 transform -translate-x-1/2" />
             </div>
-            <div className="absolute -bottom-0.5 left-1/2 w-0 h-0 border-l-1 border-r-1 border-t-2 border-transparent border-t-primary transform -translate-x-1/2" />
           </div>
           <span className="text-muted-foreground">White Angel Clinics</span>
         </div>
