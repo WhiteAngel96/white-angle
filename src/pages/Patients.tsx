@@ -39,6 +39,17 @@ const Patients = () => {
     }
   };
 
+  const scrollToFindLocation = () => {
+    const element = document.querySelector('[data-section="find-location"]');
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 120;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
@@ -78,7 +89,7 @@ const Patients = () => {
               Choose the perfect whitening solution for your lifestyle. Professional results, 
               whether you prefer in-office treatments or the convenience of home care.
             </p>
-            <Button variant="cta" size="lg" className="mb-8">
+            <Button variant="cta" size="lg" className="mb-8" onClick={scrollToFindLocation}>
               Find White Angel Near You
             </Button>
           </div>
@@ -124,8 +135,8 @@ const Patients = () => {
                 </div>
               </div>
 
-              <Button variant="cta" size="lg">
-                Find a Provider
+              <Button variant="cta" size="lg" onClick={scrollToFindLocation}>
+                Find a Clinic
               </Button>
             </div>
 
@@ -184,8 +195,8 @@ const Patients = () => {
                 </div>
               </div>
 
-              <Button variant="cta" size="lg">
-                Learn More
+              <Button variant="cta" size="lg" onClick={scrollToFindLocation}>
+                Find a Clinic
               </Button>
             </div>
           </div>
@@ -271,7 +282,9 @@ const Patients = () => {
       </section>
 
       {/* Find Location */}
-      <FindLocation />
+      <div data-section="find-location">
+        <FindLocation />
+      </div>
     </div>
   );
 };
