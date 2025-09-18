@@ -11,7 +11,6 @@ export const SecondaryHero: React.FC = () => {
       <div className="grid lg:grid-cols-2 h-screen">
         {/* Home Kit Whitening Block */}
         <div className="relative group overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90"></div>
           <div className="absolute inset-0 bg-[url('/src/assets/home-kit.jpg')] bg-cover bg-center"></div>
           <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-8">
             <div className="max-w-md">
@@ -33,7 +32,6 @@ export const SecondaryHero: React.FC = () => {
 
         {/* Clinic Whitening Block */}
         <div className="relative group overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-navy/90 to-accent/90"></div>
           <div className="absolute inset-0 bg-[url('/src/assets/clinic-interior.jpg')] bg-cover bg-center"></div>
           <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-8">
             <div className="max-w-md">
