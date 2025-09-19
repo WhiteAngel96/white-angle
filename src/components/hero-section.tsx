@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
           >
             <source src="/src/assets/hero-video.mov" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 overlay-gradient" />
+          
         </div>
 
         {/* Content - Ralph Lauren Style */}
@@ -84,7 +84,7 @@ export const HeroSection: React.FC = () => {
           >
             <source src="/src/assets/lifestyle-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-primary/60" />
+          
         </div>
 
         {/* Content */}
