@@ -21,7 +21,15 @@ const FindLocationPage = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
         <div className="container mx-auto px-4">
-          <div className="h-16"></div>
+          <div className="text-center animate-fade-up">
+            <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
+              Find White Angel Near You
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Locate authorized White Angel providers in your area. Professional treatments 
+              and products available at certified dental offices nationwide.
+            </p>
+          </div>
         </div>
       </section>
 
