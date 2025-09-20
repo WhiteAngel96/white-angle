@@ -164,9 +164,13 @@ const DentalOffice = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to={product.name === 'White Angel Extra 46%' ? '/products/white-angel-extra-46' : '#'}>
-                  <Button variant="cta" className="w-full">
-                    Request Info
+                <Link to={
+                  product.name === 'White Angel Extra 46%' ? '/products/white-angel-extra-46' :
+                  product.name === 'White Angel Pro' ? '/products/white-angel-pro' :
+                  product.name === 'Desensitiser' ? '/products/desensitiser' : '#'
+                }>
+                  <Button variant="outline" className="w-full">
+                    Learn More
                   </Button>
                 </Link>
               </div>
