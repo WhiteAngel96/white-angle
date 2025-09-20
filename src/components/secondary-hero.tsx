@@ -22,7 +22,7 @@ export const SecondaryHero: React.FC = () => {
                 Professional whitening at home
               </p>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
-                <Link to="/patients#home-kit">
+                <Link to="/patients#home-kit-whitening">
                   EXPLORE HOME KITS
                 </Link>
               </Button>
@@ -43,7 +43,7 @@ export const SecondaryHero: React.FC = () => {
                 Professional in-office results
               </p>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
-                <Link to="/patients#clinic">
+                <Link to="/patients#clinic-whitening">
                   EXPLORE TREATMENTS
                 </Link>
               </Button>

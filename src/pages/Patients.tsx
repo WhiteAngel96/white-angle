@@ -100,7 +100,7 @@ const Patients = () => {
       <BeforeAfterCarousel />
 
       {/* Clinic Whitening Section */}
-      <section id="clinic" className="py-20 bg-white">
+      <section id="clinic-whitening" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="animate-fade-up">
@@ -152,7 +152,7 @@ const Patients = () => {
       </section>
 
       {/* Home Kit Section */}
-      <section id="home-kit" className="py-20 bg-gradient-to-br from-background to-soft-aqua/5">
+      <section id="home-kit-whitening" className="py-20 bg-gradient-to-br from-background to-soft-aqua/5">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 lg:order-1 relative">
