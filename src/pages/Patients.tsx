@@ -17,12 +17,28 @@ const Patients = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    // Handle initial hash navigation when component mounts
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          const offsetTop = element.offsetTop - 140; // Account for navigation bars
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 200);
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navigationItems = [
-    { id: 'clinic', label: 'Clinic Whitening', icon: Building2 },
-    { id: 'home-kit', label: 'Home Kit', icon: Home },
+    { id: 'clinic-whitening', label: 'Clinic Whitening', icon: Building2 },
+    { id: 'home-kit-whitening', label: 'Home Kit', icon: Home },
     { id: 'desensitizer', label: 'Desensitizer', icon: Shield },
     { id: 'strips', label: 'Strips', icon: Zap }
   ];
@@ -31,7 +47,7 @@ const Patients = () => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 120; // Account for sticky navigation
+      const offsetTop = element.offsetTop - 140; // Account for sticky navigation
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -42,7 +58,7 @@ const Patients = () => {
   const scrollToFindLocation = () => {
     const element = document.querySelector('[data-section="find-location"]');
     if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 120;
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 140;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
