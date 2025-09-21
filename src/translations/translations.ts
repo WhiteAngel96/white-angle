@@ -78,7 +78,12 @@ export const translations = {
         submitRequest: 'Submit Request →',
         becomeProvider: 'Become a Provider',
         becomeProviderDescription: 'Are you a dental professional interested in offering White Angel treatments?',
-        learnMore: 'Learn More →'
+        learnMore: 'Learn More →',
+        availableProducts: 'Available Products:',
+        bookAppointment: 'Book Appointment',
+        providersMap: 'White Angel Providers Map',
+        whiteAngelClinics: 'White Angel Clinics',
+        flyingToLocation: 'Flying to location...'
       },
       secondaryHero: {
         homeKitTitle: 'Home Kit',
@@ -178,7 +183,12 @@ export const translations = {
         submitRequest: 'שלח בקשה →',
         becomeProvider: 'הפוך לספק',
         becomeProviderDescription: 'האם אתה איש מקצוע דנטלי שמעוניין להציע טיפולי White Angel?',
-        learnMore: 'למד עוד →'
+        learnMore: 'למד עוד →',
+        availableProducts: 'מוצרים זמינים:',
+        bookAppointment: 'קבע פגישה',
+        providersMap: 'מפת ספקי White Angel',
+        whiteAngelClinics: 'קליניקות White Angel',
+        flyingToLocation: 'טס למיקום...'
       },
       secondaryHero: {
         homeKitTitle: 'קיט ביתי',

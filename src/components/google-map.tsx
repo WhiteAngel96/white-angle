@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { X } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 /// <reference types="google.maps" />
 
@@ -17,6 +18,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
   const [currentLocation, setCurrentLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [isMoving, setIsMoving] = useState(false);
   const [selectedClinic, setSelectedClinic] = useState<any>(null);
+  const { t } = useTranslation();
 
   // Israel coordinates (default location)
   const israelCenter = { lat: 31.0461, lng: 34.8516 };
@@ -98,11 +100,11 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
-      <h3 className="text-xl font-bold text-navy mb-4">White Angel Providers Map</h3>
-      <div className="flex gap-6">
+      <h3 className="text-xl font-bold text-navy mb-4">{t('pages.findLocation.providersMap')}</h3>
+      <div className="flex flex-col lg:flex-row gap-6">
         {/* Map Container */}
         <div className={`relative rounded-lg overflow-hidden bg-muted transition-all duration-500 ${
-          selectedClinic ? 'w-2/3' : 'w-full'
+          selectedClinic ? 'lg:w-2/3' : 'w-full'
         } h-96`}>
           {/* Static Map Image */}
           <div 
@@ -167,7 +169,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
               <div className="bg-white px-4 py-2 rounded-lg shadow-lg">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                  <span className="text-sm font-medium">Flying to location...</span>
+                  <span className="text-sm font-medium">{t('pages.findLocation.flyingToLocation')}</span>
                 </div>
               </div>
             </div>
@@ -176,7 +178,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
 
         {/* Products Panel */}
         {selectedClinic && (
-          <Card className="w-1/3 p-4 animate-slide-in-right">
+          <Card className="lg:w-1/3 w-full p-4 animate-slide-in-right">
             <div className="flex justify-between items-start mb-3">
               <h4 className="font-bold text-lg text-navy">{selectedClinic.title}</h4>
               <Button 
@@ -189,7 +191,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
               </Button>
             </div>
             <div>
-              <h5 className="font-semibold text-muted-foreground mb-3">Available Products:</h5>
+              <h5 className="font-semibold text-muted-foreground mb-3">{t('pages.findLocation.availableProducts')}</h5>
               <div className="space-y-2">
                 {selectedClinic.products.map((product: string, index: number) => (
                   <div key={index} className="p-3 bg-muted rounded-lg hover:bg-muted/80 transition-colors">
@@ -198,7 +200,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
                 ))}
               </div>
               <Button variant="cta" size="sm" className="w-full mt-4">
-                Book Appointment
+                {t('pages.findLocation.bookAppointment')}
               </Button>
             </div>
           </Card>
@@ -216,7 +218,7 @@ export const GoogleMap: React.FC<GoogleMapProps> = ({ searchQuery, onSearchCompl
               <div className="absolute top-4 left-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-blue-500 transform -translate-x-1/2" />
             </div>
           </div>
-          <span className="text-muted-foreground">White Angel Clinics</span>
+          <span className="text-muted-foreground">{t('pages.findLocation.whiteAngelClinics')}</span>
         </div>
       </div>
     </div>
