@@ -52,6 +52,51 @@ export const translations = {
       error: 'Error',
       contactUs: 'Contact Us',
       learnMore: 'Learn More'
+    },
+    // Pages
+    pages: {
+      patients: {
+        heroTitle: 'Professional Whitening for Patients',
+        heroSubtitle: 'Choose the perfect whitening solution for your lifestyle. Professional results, whether you prefer in-office treatments or the convenience of home care.',
+        findLocationTitle: 'Find White Angel Near You',
+        findLocationSubtitle: 'Locate authorized White Angel providers in your area. Professional treatments and products available at certified dental offices nationwide.',
+        findLocationButton: 'Find White Angel Near You'
+      },
+      index: {
+        findLocationTitle: 'Find White Angel Near You',
+        findLocationSubtitle: 'Locate authorized White Angel providers in your area. Professional treatments and products available at certified dental offices nationwide.'
+      },
+      findLocation: {
+        pageTitle: 'Find White Angel Near You',
+        pageSubtitle: 'Locate authorized White Angel providers in your area. Professional treatments and products available at certified dental offices nationwide.',
+        searchPlaceholder: 'Enter your city, state, or ZIP code',
+        searchButton: 'Search',
+        cantFindProvider: 'Can\'t Find a Provider Near You?',
+        cantFindDescription: 'We\'re constantly expanding our network of authorized White Angel providers. If there isn\'t a location near you yet, let us know and we\'ll help connect you with the nearest available option.',
+        requestNewLocation: 'Request New Location',
+        requestNewDescription: 'Help us bring White Angel to your area by requesting a new provider location.',
+        submitRequest: 'Submit Request →',
+        becomeProvider: 'Become a Provider',
+        becomeProviderDescription: 'Are you a dental professional interested in offering White Angel treatments?',
+        learnMore: 'Learn More →'
+      },
+      secondaryHero: {
+        homeKitTitle: 'Home Kit',
+        homeKitSubtitle: 'Professional whitening at home',
+        homeKitButton: 'EXPLORE HOME KITS',
+        clinicTitle: 'Clinic Treatment',
+        clinicSubtitle: 'Professional in-office results',
+        clinicButton: 'EXPLORE TREATMENTS'
+      },
+      beforeAfter: {
+        title: 'See the Amazing Results',
+        subtitle: 'Real patients, real results. Discover the transformative power of White Angel professional teeth whitening technology.',
+        description1: 'Professional whitening treatment - 6 shades whiter in just one session',
+        description2: 'Home kit treatment - Gradual whitening over 2 weeks',
+        description3: 'In-office professional treatment - Maximum strength results',
+        testimonial: 'I couldn\'t believe the difference! My teeth are now 8 shades whiter, and the results have lasted for months.',
+        testimonialAuthor: '— Sarah M., Satisfied Patient'
+      }
     }
   },
   he: {
@@ -107,6 +152,51 @@ export const translations = {
       error: 'שגיאה',
       contactUs: 'צור קשר',
       learnMore: 'למד עוד'
+    },
+    // Pages
+    pages: {
+      patients: {
+        heroTitle: 'הלבנה מקצועית למטופלים',
+        heroSubtitle: 'בחר את פתרון ההלבנה המושלם לאורח החיים שלך. תוצאות מקצועיות, בין אם אתה מעדיף טיפולים במרפאה או את הנוחות של טיפול ביתי.',
+        findLocationTitle: 'מצא White Angel בקרבתך',
+        findLocationSubtitle: 'אתר ספקי White Angel מורשים באזורך. טיפולים מקצועיים ומוצרים זמינים במרפאות שיניים מוסמכות ברחבי הארץ.',
+        findLocationButton: 'מצא White Angel בקרבתך'
+      },
+      index: {
+        findLocationTitle: 'מצא White Angel בקרבתך',
+        findLocationSubtitle: 'אתר ספקי White Angel מורשים באזורך. טיפולים מקצועיים ומוצרים זמינים במרפאות שיניים מוסמכות ברחבי הארץ.'
+      },
+      findLocation: {
+        pageTitle: 'מצא White Angel בקרבתך',
+        pageSubtitle: 'אתר ספקי White Angel מורשים באזורך. טיפולים מקצועיים ומוצרים זמינים במרפאות שיניים מוסמכות ברחבי הארץ.',
+        searchPlaceholder: 'הכנס את העיר, המדינה או מיקוד שלך',
+        searchButton: 'חפש',
+        cantFindProvider: 'לא מוצאים ספק בקרבתך?',
+        cantFindDescription: 'אנחנו מרחיבים כל הזמן את רשת ספקי White Angel המורשים שלנו. אם אין מיקום בקרבתך עדיין, ספר לנו ואנחנו נעזור לך להתחבר לאפשרות הקרובה ביותר הזמינה.',
+        requestNewLocation: 'בקש מיקום חדש',
+        requestNewDescription: 'עזור לנו להביא את White Angel לאזורך על ידי בקשת מיקום ספק חדש.',
+        submitRequest: 'שלח בקשה →',
+        becomeProvider: 'הפוך לספק',
+        becomeProviderDescription: 'האם אתה איש מקצוע דנטלי שמעוניין להציע טיפולי White Angel?',
+        learnMore: 'למד עוד →'
+      },
+      secondaryHero: {
+        homeKitTitle: 'קיט ביתי',
+        homeKitSubtitle: 'הלבנה מקצועית בבית',
+        homeKitButton: 'גלה קיטים ביתיים',
+        clinicTitle: 'טיפול בקליניקה',
+        clinicSubtitle: 'תוצאות מקצועיות במרפאה',
+        clinicButton: 'גלה טיפולים'
+      },
+      beforeAfter: {
+        title: 'ראה את התוצאות המדהימות',
+        subtitle: 'מטופלים אמיתיים, תוצאות אמיתיות. גלה את הכוח המהפכני של טכנולוגיית הלבנת השיניים המקצועית של White Angel.',
+        description1: 'טיפול הלבנה מקצועי - 6 גוונים בהירים יותר בפגישה אחת בלבד',
+        description2: 'טיפול קיט ביתי - הלבנה הדרגתית במשך שבועיים',
+        description3: 'טיפול מקצועי במרפאה - תוצאות בעוצמה מקסימלית',
+        testimonial: 'לא יכולתי להאמין להבדל! השיניים שלי עכשיו 8 גוונים בהירים יותר, והתוצאות נמשכות חודשים.',
+        testimonialAuthor: '— שרה מ., מטופלת מרוצה'
+      }
     }
   }
 };

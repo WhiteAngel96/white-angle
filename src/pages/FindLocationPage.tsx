@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from '@/components/ui/navigation';
 import { FindLocation } from '@/components/find-location';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const FindLocationPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +25,10 @@ const FindLocationPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center animate-fade-up">
             <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-              Find White Angel Near You
+              {t('pages.findLocation.pageTitle')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Locate authorized White Angel providers in your area. Professional treatments 
-              and products available at certified dental offices nationwide.
+              {t('pages.findLocation.pageSubtitle')}
             </p>
           </div>
         </div>
@@ -41,32 +42,30 @@ const FindLocationPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-navy mb-6">
-              Can't Find a Provider Near You?
+              {t('pages.findLocation.cantFindProvider')}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We're constantly expanding our network of authorized White Angel providers. 
-              If there isn't a location near you yet, let us know and we'll help connect 
-              you with the nearest available option.
+              {t('pages.findLocation.cantFindDescription')}
             </p>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-navy mb-3">Request New Location</h3>
+                <h3 className="text-xl font-bold text-navy mb-3">{t('pages.findLocation.requestNewLocation')}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Help us bring White Angel to your area by requesting a new provider location.
+                  {t('pages.findLocation.requestNewDescription')}
                 </p>
                 <button className="text-primary font-medium hover:underline">
-                  Submit Request →
+                  {t('pages.findLocation.submitRequest')}
                 </button>
               </div>
               
               <div className="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-navy mb-3">Become a Provider</h3>
+                <h3 className="text-xl font-bold text-navy mb-3">{t('pages.findLocation.becomeProvider')}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Are you a dental professional interested in offering White Angel treatments?
+                  {t('pages.findLocation.becomeProviderDescription')}
                 </p>
                 <button className="text-secondary font-medium hover:underline">
-                  Learn More →
+                  {t('pages.findLocation.learnMore')}
                 </button>
               </div>
             </div>

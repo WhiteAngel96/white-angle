@@ -6,10 +6,12 @@ import { FindLocation } from '@/components/find-location';
 import { Home, Building2, Shield, Zap } from 'lucide-react';
 import clinicImage from '@/assets/clinic-interior.jpg';
 import homeKitImage from '@/assets/home-kit.jpg';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Patients = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('clinic');
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,14 +101,13 @@ const Patients = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-up">
             <h1 className="text-5xl md:text-6xl font-bold text-navy mb-6">
-              Professional Whitening for Patients
+              {t('pages.patients.heroTitle')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Choose the perfect whitening solution for your lifestyle. Professional results, 
-              whether you prefer in-office treatments or the convenience of home care.
+              {t('pages.patients.heroSubtitle')}
             </p>
             <Button variant="cta" size="lg" className="mb-8" onClick={scrollToFindLocation}>
-              Find White Angel Near You
+              {t('pages.patients.findLocationButton')}
             </Button>
           </div>
         </div>
@@ -298,15 +299,14 @@ const Patients = () => {
       </section>
 
       {/* Find Location */}
-      <section className="py-20 bg-gradient-to-br from-background to-soft-aqua/5">
+      <section className="py-12 bg-gradient-to-br from-background to-soft-aqua/5">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-              Find White Angel Near You
+          <div className="text-center mb-8 animate-fade-up">
+            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
+              {t('pages.patients.findLocationTitle')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Locate authorized White Angel providers in your area. Professional treatments 
-              and products available at certified dental offices nationwide.
+              {t('pages.patients.findLocationSubtitle')}
             </p>
           </div>
         </div>

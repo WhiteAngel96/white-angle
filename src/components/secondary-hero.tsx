@@ -15,15 +15,15 @@ export const SecondaryHero: React.FC = () => {
           <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-8">
             <div className="max-w-md">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4 uppercase">
-                Home Kit
+                {t('pages.secondaryHero.homeKitTitle')}
               </h3>
               <div className="w-16 h-px bg-white/60 mx-auto mb-6"></div>
               <p className="text-lg font-light mb-8 tracking-wide">
-                Professional whitening at home
+                {t('pages.secondaryHero.homeKitSubtitle')}
               </p>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
                 <Link to="/patients#home-kit-whitening">
-                  EXPLORE HOME KITS
+                  {t('pages.secondaryHero.homeKitButton')}
                 </Link>
               </Button>
             </div>
@@ -36,15 +36,15 @@ export const SecondaryHero: React.FC = () => {
           <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-8">
             <div className="max-w-md">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4 uppercase">
-                Clinic Treatment
+                {t('pages.secondaryHero.clinicTitle')}
               </h3>
               <div className="w-16 h-px bg-white/60 mx-auto mb-6"></div>
               <p className="text-lg font-light mb-8 tracking-wide">
-                Professional in-office results
+                {t('pages.secondaryHero.clinicSubtitle')}
               </p>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
                 <Link to="/patients#clinic-whitening">
-                  EXPLORE TREATMENTS
+                  {t('pages.secondaryHero.clinicButton')}
                 </Link>
               </Button>
             </div>

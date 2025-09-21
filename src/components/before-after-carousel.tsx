@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import beforeAfterImage from '@/assets/before-after.jpg';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface BeforeAfterImage {
   id: number;
@@ -13,6 +14,7 @@ interface BeforeAfterImage {
 export const BeforeAfterCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const { t } = useTranslation();
 
   // Mock data - in real app, this would come from API
   const beforeAfterImages: BeforeAfterImage[] = [
@@ -20,19 +22,19 @@ export const BeforeAfterCarousel: React.FC = () => {
       id: 1,
       before: beforeAfterImage,
       after: beforeAfterImage,
-      description: "Professional whitening treatment - 6 shades whiter in just one session"
+      description: t('pages.beforeAfter.description1')
     },
     {
       id: 2,
       before: beforeAfterImage,
       after: beforeAfterImage,
-      description: "Home kit treatment - Gradual whitening over 2 weeks"
+      description: t('pages.beforeAfter.description2')
     },
     {
       id: 3,
       before: beforeAfterImage,
       after: beforeAfterImage,
-      description: "In-office professional treatment - Maximum strength results"
+      description: t('pages.beforeAfter.description3')
     }
   ];
 
@@ -61,11 +63,10 @@ export const BeforeAfterCarousel: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            See the Amazing Results
+            {t('pages.beforeAfter.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real patients, real results. Discover the transformative power of White Angel 
-            professional teeth whitening technology.
+            {t('pages.beforeAfter.subtitle')}
           </p>
         </div>
 
@@ -137,10 +138,9 @@ export const BeforeAfterCarousel: React.FC = () => {
           {/* Testimonial */}
           <div className="mt-12 text-center animate-fade-up">
             <blockquote className="text-2xl italic text-navy mb-4">
-              "I couldn't believe the difference! My teeth are now 8 shades whiter, 
-              and the results have lasted for months."
+              "{t('pages.beforeAfter.testimonial')}"
             </blockquote>
-            <cite className="text-muted-foreground">— Sarah M., Satisfied Patient</cite>
+            <cite className="text-muted-foreground">{t('pages.beforeAfter.testimonialAuthor')}</cite>
           </div>
         </div>
       </div>

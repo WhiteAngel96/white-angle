@@ -3,12 +3,14 @@ import { Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { GoogleMap } from '@/components/google-map';
+import { useTranslation } from '@/hooks/useTranslation';
 
 
 export const FindLocation: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [searchedLocation, setSearchedLocation] = useState('');
+  const { t } = useTranslation();
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
@@ -21,17 +23,17 @@ export const FindLocation: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background to-soft-aqua/5">
+    <section className="py-12 bg-gradient-to-br from-background to-soft-aqua/5">
       <div className="container mx-auto px-4">
 
         {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
+        <div className="max-w-2xl mx-auto mb-8">
           <div className="flex gap-4">
             <div className="flex-1 relative">
               <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Enter your city, state, or ZIP code"
+                placeholder={t('pages.findLocation.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 h-12 text-lg"
@@ -50,7 +52,7 @@ export const FindLocation: React.FC = () => {
               ) : (
                 <Search className="w-5 h-5" />
               )}
-              Search
+              {t('pages.findLocation.searchButton')}
             </Button>
           </div>
         </div>
