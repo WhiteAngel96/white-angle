@@ -21,7 +21,7 @@ export const SecondaryHero: React.FC = () => {
               <p className="text-lg font-light mb-8 tracking-wide">
                 {t('pages.secondaryHero.homeKitSubtitle')}
               </p>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
+              <Button asChild variant="cta" size="lg" className="text-white shadow-2xl hover:shadow-cta-light-blue/30">
                 <Link to="/patients#home-kit-whitening">
                   {t('pages.secondaryHero.homeKitButton')}
                 </Link>
@@ -42,7 +42,7 @@ export const SecondaryHero: React.FC = () => {
               <p className="text-lg font-light mb-8 tracking-wide">
                 {t('pages.secondaryHero.clinicSubtitle')}
               </p>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
+              <Button asChild variant="cta" size="lg" className="text-white shadow-2xl hover:shadow-cta-light-blue/30">
                 <Link to="/patients#clinic-whitening">
                   {t('pages.secondaryHero.clinicButton')}
                 </Link>

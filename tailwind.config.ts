@@ -59,6 +59,11 @@ export default {
           DEFAULT: "hsl(var(--navy))",
           foreground: "hsl(var(--navy-foreground))",
         },
+        'cta-light-blue': {
+          DEFAULT: "hsl(var(--cta-light-blue))",
+          foreground: "hsl(var(--cta-light-blue-foreground))",
+          hover: "hsl(var(--cta-light-blue-hover))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

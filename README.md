@@ -32,7 +32,12 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Configure Google Maps (required for map functionality)
+# See GOOGLE_MAPS_SETUP.md for detailed instructions
+cp .env.example .env
+# Edit .env and add your Google Maps API key
+
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
@@ -59,6 +64,17 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Google Maps JavaScript API
+
+## Google Maps Configuration
+
+This website includes interactive Google Maps functionality for finding White Angel clinic locations. To enable the maps:
+
+1. **Get a Google Maps API Key**: Follow the detailed setup instructions in `GOOGLE_MAPS_SETUP.md`
+2. **Set Environment Variable**: Add `VITE_GOOGLE_MAPS_API_KEY=your_key_here` to your `.env` file
+3. **Required APIs**: Enable Maps JavaScript API, Places API (optional), and Geocoding API (optional) in Google Cloud Console
+
+**Note**: The map will show a configuration message if the API key is not set up properly.
 
 ## How can I deploy this project?
 

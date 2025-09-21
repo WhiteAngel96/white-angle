@@ -53,15 +53,15 @@ export const HeroSection: React.FC = () => {
               </h2>
             </div>
             
-            {/* CTA Buttons - Ralph Lauren Style */}
+            {/* CTA Buttons - Light Blue Style */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button asChild variant="outline" size="lg" className="min-w-[180px] border-white text-white hover:bg-white hover:text-navy transition-all duration-300">
+              <Button asChild variant="cta" size="lg" className="min-w-[180px] text-white shadow-2xl hover:shadow-cta-light-blue/30">
                 <Link to="/about">
                   {t('hero.discoverMore')}
                 </Link>
               </Button>
               
-              <Button asChild variant="ghost" size="lg" className="min-w-[180px] text-white border border-white/30 hover:bg-white/10 transition-all duration-300">
+              <Button asChild variant="cta-outline" size="lg" className="min-w-[180px] bg-white/10 backdrop-blur-sm hover:shadow-2xl hover:shadow-cta-light-blue/20">
                 <Link to="/find-location">
                   {t('hero.findLocations')}
                 </Link>

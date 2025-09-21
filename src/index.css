@@ -19,6 +19,11 @@
     --soft-aqua: 200 100% 70%; /* #66CCFF - Soft Aqua Blue */
     --soft-aqua-foreground: 218 90% 15%;
     
+    /* CTA Light Blue - Optimized for accessibility and video backgrounds */
+    --cta-light-blue: 200 100% 65%; /* #52C7F5 - Accessible light blue */
+    --cta-light-blue-foreground: 0 0% 100%;
+    --cta-light-blue-hover: 200 100% 55%; /* #29B8F0 - Darker hover state */
+    
     --navy: 217 100% 35%; /* #0056B3 - Deep Navy Blue */
     --navy-foreground: 0 0% 100%;
     
