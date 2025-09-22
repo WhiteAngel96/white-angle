@@ -2,17 +2,27 @@ export const translations = {
   en: {
     // Navigation
     nav: {
-      forDentalOffice: 'For Dental Office',
-      forPatients: 'For Patients',
+      forDentalOffice: 'For Dentist',
+      forPatients: 'For Patient',
       about: 'About',
       findLocation: 'Find White Angel Near You',
+      findUs: 'Find Us',
+      home: 'Home',
       takeHomeProducts: 'Take Home Products',
       inOfficeProducts: 'In-Office Products',
       otherProducts: 'Other Products',
       clinicWhitening: 'Clinic Whitening',
       homeKit: 'Home Kit',
       desensitizer: 'Desensitizer',
-      strips: 'Strips'
+      strips: 'Strips',
+      aria: {
+        forDentalOffice: 'Navigate to Dental Office page',
+        forPatients: 'Navigate to For Patients page',
+        findLocation: 'Navigate to Find Location page',
+        about: 'Navigate to About page',
+        home: 'Navigate to Home page',
+        mobileNavigation: 'Mobile navigation menu'
+      }
     },
     // Hero Section
     hero: {
@@ -107,17 +117,27 @@ export const translations = {
   he: {
     // Navigation
     nav: {
-      forDentalOffice: 'למרפאות שיניים',
-      forPatients: 'למטופלים',
+      forDentalOffice: 'לרופאים',
+      forPatients: 'למטופל',
       about: 'אודות',
       findLocation: 'מצא White Angel בקרבתך',
+      findUs: 'מצא אותנו',
+      home: 'בית',
       takeHomeProducts: 'מוצרים לבית',
       inOfficeProducts: 'מוצרים לקליניקה',
       otherProducts: 'מוצרים נוספים',
       clinicWhitening: 'הלבנה בקליניקה',
       homeKit: 'קיט ביתי',
       desensitizer: 'חומר נגד רגישות',
-      strips: 'רצועות הלבנה'
+      strips: 'רצועות הלבנה',
+      aria: {
+        forDentalOffice: 'עבור לעמוד מרפאות שיניים',
+        forPatients: 'עבור לעמוד למטופלים',
+        findLocation: 'עבור לעמוד מיקום',
+        about: 'עבור לעמוד אודות',
+        home: 'עבור לעמוד הבית',
+        mobileNavigation: 'תפריט ניווט נייד'
+      }
     },
     // Hero Section
     hero: {

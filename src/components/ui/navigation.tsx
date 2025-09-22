@@ -42,7 +42,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 hidden lg:block ${
       isScrolled 
         ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border' 
         : 'bg-transparent'
@@ -69,8 +69,10 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
               >
                 <Link
                   to={item.href}
-                  className={`flex items-center space-x-1 font-medium transition-colors hover:text-primary ${
-                    isScrolled ? 'text-primary' : 'text-white'
+                  className={`flex items-center space-x-1 font-medium transition-colors ${
+                    isScrolled 
+                      ? 'text-cta-light-blue hover:text-cta-light-blue-hover' 
+                      : 'text-cta-light-blue hover:text-white'
                   }`}
                 >
                   <span>{item.label}</span>
@@ -83,7 +85,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
                       <Link
                         key={dropdownItem.label}
                         to={dropdownItem.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
+                        className="block px-4 py-2 text-sm text-foreground hover:bg-cta-light-blue/10 hover:text-cta-light-blue transition-colors"
                       >
                         {dropdownItem.label}
                       </Link>
@@ -107,44 +109,20 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
                 className="w-6 h-4 object-cover rounded-sm"
               />
               <span className={`text-xs font-medium ${
-                isScrolled ? 'text-primary' : 'text-white'
+                isScrolled ? 'text-cta-light-blue' : 'text-cta-light-blue'
               }`}>
                 {isHebrew ? 'EN' : 'עב'}
               </span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-3">
-            {/* Mobile Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="p-2 rounded-md hover:bg-background/10 transition-colors"
-              aria-label={`Switch to ${isHebrew ? 'English' : 'Hebrew'}`}
-            >
-              <img 
-                src={isHebrew ? usFlag : israelFlag}
-                alt={isHebrew ? 'Switch to English' : 'Switch to Hebrew'}
-                className="w-6 h-4 object-cover rounded-sm"
-              />
-            </button>
-            
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md hover:bg-background/10 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-              ) : (
-                <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-              )}
-            </button>
+          {/* Mobile Menu Button - Hidden since we use bottom nav on mobile */}
+          <div className="hidden">
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
+        {/* Mobile Navigation - Hidden since we use bottom nav on mobile */}
+        {false && (
           <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in">
             <div className="py-4 space-y-2">
               {navItems.map((item) => (

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from '@/components/ui/navigation';
+import { MobileBottomNav } from '@/components/ui/mobile-bottom-nav';
+import { MobileLanguageSwitch } from '@/components/ui/mobile-language-switch';
 import { HeroSection } from '@/components/hero-section';
 import { SecondaryHero } from '@/components/secondary-hero';
 import { BeforeAfterCarousel } from '@/components/before-after-carousel';
@@ -22,6 +24,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
+      <MobileBottomNav />
+      <MobileLanguageSwitch />
       <main>
         <HeroSection />
         <SecondaryHero />

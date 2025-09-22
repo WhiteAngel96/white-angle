@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from '@/components/ui/navigation';
+import { MobileBottomNav } from '@/components/ui/mobile-bottom-nav';
+import { MobileLanguageSwitch } from '@/components/ui/mobile-language-switch';
 import { FindLocation } from '@/components/find-location';
 import { useTranslation } from '@/hooks/useTranslation';
 
@@ -19,6 +21,8 @@ const FindLocationPage = () => {
   return (
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
+      <MobileBottomNav />
+      <MobileLanguageSwitch />
       
       {/* Hero Section */}
       <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 to-soft-aqua/10">

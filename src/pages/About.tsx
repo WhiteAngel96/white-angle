@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from '@/components/ui/navigation';
+import { MobileBottomNav } from '@/components/ui/mobile-bottom-nav';
+import { MobileLanguageSwitch } from '@/components/ui/mobile-language-switch';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -35,6 +37,8 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
+      <MobileBottomNav />
+      <MobileLanguageSwitch />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10">

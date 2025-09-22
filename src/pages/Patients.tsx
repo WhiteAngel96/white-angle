@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from '@/components/ui/navigation';
+import { MobileBottomNav } from '@/components/ui/mobile-bottom-nav';
+import { MobileLanguageSwitch } from '@/components/ui/mobile-language-switch';
+import { SecondaryNavigation } from '@/components/ui/secondary-navigation';
 import { Button } from '@/components/ui/button';
 import { BeforeAfterCarousel } from '@/components/before-after-carousel';
 import { FindLocation } from '@/components/find-location';
@@ -10,7 +13,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 
 const Patients = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('clinic');
+  const [activeSection, setActiveSection] = useState('clinic-whitening');
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -23,10 +26,14 @@ const Patients = () => {
     // Handle initial hash navigation when component mounts
     const hash = window.location.hash;
     if (hash) {
+      const sectionId = hash.replace('#', '');
+      setActiveSection(sectionId);
       setTimeout(() => {
-        const element = document.getElementById(hash.replace('#', ''));
+        const element = document.getElementById(sectionId);
         if (element) {
-          const offsetTop = element.offsetTop - 140; // Account for navigation bars
+          // Account for mobile (secondary nav only) vs desktop (header + secondary nav)
+          const offset = window.innerWidth >= 1024 ? 140 : 80; // Desktop: 80px header + 60px secondary nav, Mobile: 80px secondary nav only
+          const offsetTop = element.offsetTop - offset;
           window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
@@ -39,17 +46,19 @@ const Patients = () => {
   }, []);
 
   const navigationItems = [
-    { id: 'clinic-whitening', label: 'Clinic Whitening', icon: Building2 },
-    { id: 'home-kit-whitening', label: 'Home Kit', icon: Home },
-    { id: 'desensitizer', label: 'Desensitizer', icon: Shield },
-    { id: 'strips', label: 'Strips', icon: Zap }
+    { id: 'clinic-whitening', label: t('nav.clinicWhitening'), icon: Building2 },
+    { id: 'home-kit-whitening', label: t('nav.homeKit'), icon: Home },
+    { id: 'desensitizer', label: t('nav.desensitizer'), icon: Shield },
+    { id: 'strips', label: t('nav.strips'), icon: Zap }
   ];
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 140; // Account for sticky navigation
+      // Account for mobile (secondary nav only) vs desktop (header + secondary nav)
+      const offset = window.innerWidth >= 1024 ? 140 : 80; // Desktop: 80px header + 60px secondary nav, Mobile: 80px secondary nav only
+      const offsetTop = element.offsetTop - offset;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -60,7 +69,9 @@ const Patients = () => {
   const scrollToFindLocation = () => {
     const element = document.querySelector('[data-section="find-location"]');
     if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 140;
+      // Account for mobile (secondary nav only) vs desktop (header + secondary nav)
+      const offset = window.innerWidth >= 1024 ? 140 : 80; // Desktop: 80px header + 60px secondary nav, Mobile: 80px secondary nav only
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -71,42 +82,27 @@ const Patients = () => {
   return (
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
+      <MobileBottomNav />
+      <MobileLanguageSwitch />
       
-      {/* Sticky Navigation */}
-      <div className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4">
-          <nav className="flex justify-center py-4">
-            <div className="flex space-x-2 bg-background/50 backdrop-blur-sm rounded-full p-2 border border-border/50">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-full whitespace-nowrap transition-all duration-300 ${
-                    activeSection === item.id
-                      ? 'bg-primary text-primary-foreground shadow-md'
-                      : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
-                  }`}
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span className="font-medium">{item.label}</span>
-                </button>
-              ))}
-            </div>
-          </nav>
-        </div>
-      </div>
+      {/* Secondary Navigation */}
+      <SecondaryNavigation
+        items={navigationItems}
+        activeSection={activeSection}
+        onSectionClick={scrollToSection}
+      />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
+      {/* Hero Section - Title with proper spacing below secondary nav */}
+      <section className="pt-6 pb-8 lg:pt-24 lg:pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-up">
-            <h1 className="text-5xl md:text-6xl font-bold text-navy mb-6">
+          <div className="text-center mb-8 lg:mb-12 animate-fade-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4 lg:mb-4">
               {t('pages.patients.heroTitle')}
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 lg:mb-8">
               {t('pages.patients.heroSubtitle')}
             </p>
-            <Button variant="cta" size="lg" className="mb-8" onClick={scrollToFindLocation}>
+            <Button variant="cta" size="lg" className="mb-4 lg:mb-6" onClick={scrollToFindLocation}>
               {t('pages.patients.findLocationButton')}
             </Button>
           </div>

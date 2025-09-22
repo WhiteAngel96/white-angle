@@ -163,6 +163,33 @@
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
+  
+  /* Mobile body padding to account for bottom nav */
+  @media (max-width: 1023px) {
+    body {
+      padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+    }
+  }
+  
+  /* Hide scrollbar while maintaining functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+  
+  /* Touch scroll behavior */
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+  
+  /* Mobile navigation safe area */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }
 
 @keyframes fade-up {
