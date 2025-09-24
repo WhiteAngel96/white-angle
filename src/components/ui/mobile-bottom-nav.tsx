@@ -76,7 +76,7 @@ export const MobileBottomNav: React.FC = () => {
 
   return (
     <nav 
-      className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white/95 backdrop-blur-md border-t border-border shadow-lg"
+      className="fixed bottom-0 left-0 right-0 w-full z-50 lg:hidden bg-white/95 backdrop-blur-md border-t border-border shadow-lg"
       role="navigation"
       aria-label={t('nav.aria.mobileNavigation')}
       dir={isHebrew ? 'rtl' : 'ltr'}
@@ -91,19 +91,16 @@ export const MobileBottomNav: React.FC = () => {
               key={item.id}
               to={item.href}
               className={cn(
-                'flex flex-col items-center justify-center min-w-0 flex-1 px-1 py-1.5 rounded-md transition-all duration-200',
+                'flex flex-col items-center justify-center min-w-0 flex-1 px-1 py-1.5 rounded-md',
                 'focus:outline-none focus:ring-2 focus:ring-cta-light-blue focus:ring-offset-1',
-                'hover:bg-cta-light-blue/5 active:scale-95',
+                'hover:bg-cta-light-blue/5',
                 getActiveClass(item.href)
               )}
               aria-label={t(item.ariaLabelKey)}
               aria-current={active ? 'page' : undefined}
             >
               {/* Icon or Logo */}
-              <div className={cn(
-                'flex items-center justify-center w-5 h-5 mb-0.5',
-                active && 'animate-pulse'
-              )}>
+              <div className="flex items-center justify-center w-5 h-5 mb-0.5">
                 {item.isLogo ? (
                   <img 
                     src="/src/assets/white-angel-logo.png" 
@@ -128,7 +125,7 @@ export const MobileBottomNav: React.FC = () => {
               
               {/* Active indicator */}
               {active && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-cta-light-blue rounded-full" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-cta-light-blue rounded-full" />
               )}
             </Link>
           );
