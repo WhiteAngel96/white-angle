@@ -107,15 +107,78 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   body {
     @apply bg-background text-foreground font-assistant;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
   }
   
   /* Hebrew font support */
   .font-hebrew {
     font-family: 'Arial', 'Tahoma', sans-serif;
+  }
+  
+  /* Prevent horizontal scroll on all containers */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure all sections respect viewport width */
+  section {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Fix for any elements that might extend beyond viewport */
+  [class*="min-w-"] {
+    max-width: 100%;
+  }
+  
+  /* Ensure all flex containers respect viewport width */
+  .flex {
+    max-width: 100%;
+  }
+  
+  /* Prevent buttons from causing horizontal overflow */
+  button {
+    max-width: 100%;
+  }
+  
+  /* Ensure all images respect container width */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* CRITICAL: Mobile bottom navigation must NEVER animate or move */
+  nav.fixed.bottom-0,
+  nav[class*="fixed"][class*="bottom-0"] {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  nav.fixed.bottom-0 *,
+  nav[class*="fixed"][class*="bottom-0"] * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
   }
 }
 

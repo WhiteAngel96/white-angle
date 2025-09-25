@@ -80,7 +80,7 @@ const Patients = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden">
       <Navigation isScrolled={isScrolled} />
       <MobileBottomNav />
       <MobileLanguageSwitch />
@@ -93,7 +93,7 @@ const Patients = () => {
       />
 
       {/* Hero Section - Title with proper spacing below secondary nav */}
-      <section className="pt-6 pb-8 lg:pt-24 lg:pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
+      <section className="pt-6 pb-8 lg:pt-24 lg:pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10 w-full max-w-full overflow-x-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 lg:mb-12 animate-fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4 lg:mb-4">

@@ -19,13 +19,13 @@ const FindLocationPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden">
       <Navigation isScrolled={isScrolled} />
       <MobileBottomNav />
       <MobileLanguageSwitch />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
+      <section className="pt-24 pb-8 bg-gradient-to-br from-primary/5 to-soft-aqua/10 w-full max-w-full overflow-x-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center animate-fade-up">
             <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">

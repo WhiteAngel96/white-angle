@@ -71,7 +71,7 @@ export const MobileBottomNav: React.FC = () => {
   const getActiveClass = (href: string) => {
     return isActive(href) 
       ? 'text-cta-light-blue bg-cta-light-blue/10' 
-      : 'text-muted-foreground hover:text-cta-light-blue';
+      : 'text-muted-foreground';
   };
 
   return (
@@ -80,6 +80,15 @@ export const MobileBottomNav: React.FC = () => {
       role="navigation"
       aria-label={t('nav.aria.mobileNavigation')}
       dir={isHebrew ? 'rtl' : 'ltr'}
+      style={{
+        position: 'fixed',
+        bottom: '0',
+        left: '0',
+        width: '100%',
+        transition: 'none',
+        transform: 'none',
+        animation: 'none'
+      }}
     >
       <div className="flex items-center justify-around px-1 py-1.5 safe-area-pb">
         {displayItems.map((item) => {
@@ -93,9 +102,13 @@ export const MobileBottomNav: React.FC = () => {
               className={cn(
                 'flex flex-col items-center justify-center min-w-0 flex-1 px-1 py-1.5 rounded-md',
                 'focus:outline-none focus:ring-2 focus:ring-cta-light-blue focus:ring-offset-1',
-                'hover:bg-cta-light-blue/5',
                 getActiveClass(item.href)
               )}
+              style={{
+                transition: 'none',
+                transform: 'none',
+                animation: 'none'
+              }}
               aria-label={t(item.ariaLabelKey)}
               aria-current={active ? 'page' : undefined}
             >
