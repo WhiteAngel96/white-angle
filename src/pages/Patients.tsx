@@ -10,6 +10,7 @@ import { Home, Building2, Shield, Zap } from 'lucide-react';
 import clinicImage from '@/assets/clinic-interior.jpg';
 import homeKitImage from '@/assets/home-kit.jpg';
 import { useTranslation } from '@/hooks/useTranslation';
+import patientBanner from '@/assets/patient-banner.png';
 
 const Patients = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,20 +92,32 @@ const Patients = () => {
 
    {/* Hero Section - Title with proper spacing below secondary nav */}
    <section 
-  className="pt-28 lg:pt-48 pb-8 lg:pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10 w-full max-w-full overflow-x-hidden"
+  className="relative h-[70vh] flex items-center justify-center overflow-hidden w-full max-w-full mt-20 lg:mt-28"
 >
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-8 lg:mb-12 animate-fade-up">
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4 lg:mb-4">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src={patientBanner} 
+      alt="Patient Banner" 
+      className="w-full h-full object-cover object-[20%_10%]"
+    />
+    {/* אופציונלי: שכבת כהות כדי שהטקסט יהיה ברור */}
+    <div className="absolute inset-0 bg-black/30"></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-4 text-center text-white pt10 md:pt-20">
+  <div className="text-center mb-8 lg:mb-12 animate-fade-up">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-4 drop-shadow-lg">
         {t('pages.patients.heroTitle')}
       </h1>
-      <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 lg:mb-8">
+      <p className="text-lg lg:text-xl max-w-3xl mx-auto mb-6 lg:mb-8 drop-shadow-md">
         {t('pages.patients.heroSubtitle')}
       </p>
       <Button 
         variant="cta" 
         size="lg" 
-        className="mb-4 lg:mb-6" 
+        className="mb-4 lg:mb-6"
         onClick={scrollToFindLocation}
       >
         {t('pages.patients.findLocationButton')}
@@ -112,6 +125,8 @@ const Patients = () => {
     </div>
   </div>
 </section>
+
+
 
 
 

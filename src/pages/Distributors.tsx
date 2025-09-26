@@ -8,6 +8,8 @@ import { Card } from '@/components/ui/card';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import clinicInteriorImage from '@/assets/clinic-interior.jpg';
+import distributorBanner from '@/assets/distributor-banner.png';
+
 
 const Distributors = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -97,22 +99,32 @@ const Distributors = () => {
       <MobileLanguageSwitch />
       
       <main className="w-full max-w-full overflow-x-hidden">
-        {/* Hero Section */}
-        <section className="relative h-[40vh] min-h-[200px] flex items-center justify-center overflow-hidden">
+        {/* Hero Section with Banner */}
+        <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img 
-              src={clinicInteriorImage}
-              alt="White Angel Distribution"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-navy/70"></div>
+              src={distributorBanner} 
+              alt="Distributor Banner" 
+              className="w-full h-full object-cover object-[20%_center] md:object-center"
+              />
+
+            <div className="absolute inset-0 bg-black/30"></div> {/* כהות קלה */}
           </div>
 
+          {/* Content */}
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-cta-light-blue">
-                {t('Want to be part of the success?')}
+            <div className="animate-fade-up">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
+                Distribution Partnership
               </h1>
+              <p className="text-lg md:text-xl max-w-3xl mx-auto mb-6 drop-shadow-md">
+                Join the White Angel family and bring professional teeth whitening 
+                excellence to dental professionals in your region.
+              </p>
+              <Button variant="hero" size="lg">
+                Become a Partner
+              </Button>
             </div>
           </div>
         </section>

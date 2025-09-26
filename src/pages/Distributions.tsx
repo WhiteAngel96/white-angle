@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Globe, Users, TrendingUp, Award, CheckCircle } from 'lucide-react';
+import distributorBanner from '@/assets/distributor-banner.png';
 
 const Distributions = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,14 +54,25 @@ const Distributions = () => {
     <div className="min-h-screen">
       <Navigation isScrolled={isScrolled} />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-navy to-primary">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-white animate-fade-up">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+     {/* Hero Section with Banner */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={distributorBanner} 
+            alt="Distributor Banner" 
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/30"></div> {/* כהות קלה */}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+          <div className="animate-fade-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
               Distribution Partnership
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-6 drop-shadow-md">
               Join the White Angel family and bring professional teeth whitening 
               excellence to dental professionals in your region.
             </p>
@@ -70,6 +82,7 @@ const Distributions = () => {
           </div>
         </div>
       </section>
+
 
       {/* Partnership Benefits */}
       <section className="py-20 bg-white">

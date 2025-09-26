@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Shield, Award, Users, Heart } from 'lucide-react';
+import aboutus from '@/assets/about-us.png';
+
 
 const About = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,46 +42,35 @@ const About = () => {
       <MobileBottomNav />
       <MobileLanguageSwitch />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-up">
-            <h1 className="text-5xl md:text-6xl font-bold text-navy mb-6">
-              About White Angel
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Leading the future of professional teeth whitening with innovative technology, 
-              uncompromising quality, and exceptional results.
-            </p>
-          </div>
+      {/* Hero Section with Banner */}
+<section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+      <img 
+      src={aboutus} 
+      alt="About White Angel" 
+      className="
+        w-full h-full object-cover 
+        object-[70%_center]   /* ברירת מחדל למובייל - התמונה יותר ימינה */
+        md:object-[70%_20%]   /* בדסקטופ - יורדת קצת למטה */
+      "
+    />
+    <div className="absolute inset-0 bg-black/30"></div> {/* שכבת כהות לטקסט */}
+  </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="animate-fade-up">
-              <h2 className="text-3xl font-bold text-navy mb-6">Our Mission</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                At White Angel, we believe everyone deserves a brilliant, confident smile. 
-                Our advanced teeth whitening technology combines cutting-edge science with 
-                gentle, effective formulations to deliver professional results that last.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8">
-                Since our founding, we've been committed to setting the highest standards 
-                in dental aesthetics, partnering with dental professionals worldwide to 
-                bring you safe, reliable, and transformative whitening solutions.
-              </p>
-              <div className="flex items-center space-x-4">
-                <Heart className="w-8 h-8 text-primary" />
-                <span className="text-lg font-medium text-navy">Trusted by professionals, loved by patients</span>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
-                <Users className="w-24 h-24 text-primary" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-4 text-center text-white">
+    <div className="animate-fade-up">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
+        About White Angel
+      </h1>
+      <p className="text-lg md:text-xl max-w-3xl mx-auto mb-6 drop-shadow-md">
+        Leading the future of professional teeth whitening with innovative technology, 
+        uncompromising quality, and exceptional results.
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* Stats Section */}
       <section className="py-16 bg-white">
