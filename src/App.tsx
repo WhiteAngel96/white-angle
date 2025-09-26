@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Patients from "./pages/Patients";
 import DentalOffice from "./pages/DentalOffice";
+import Distributors from "./pages/Distributors";
 import Distributions from "./pages/Distributions";
 import FindLocationPage from "./pages/FindLocationPage";
 import NotFound from "./pages/NotFound";
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/patients" element={<Patients />} />
             <Route path="/dental-office" element={<DentalOffice />} />
+            <Route path="/distributors" element={<Distributors />} />
             <Route path="/distributions" element={<Distributions />} />
             <Route path="/find-location" element={<FindLocationPage />} />
             <Route path="/products/home-kit-20" element={<HomeKit20 />} />

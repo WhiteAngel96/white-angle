@@ -3,6 +3,7 @@ export const translations = {
     // Navigation
     nav: {
       forDentalOffice: 'For Dentist',
+      forDistributors: 'For Distributors',
       forPatients: 'For Patient',
       about: 'About',
       findLocation: 'Find White Angel Near You',
@@ -17,6 +18,7 @@ export const translations = {
       strips: 'Strips',
       aria: {
         forDentalOffice: 'Navigate to Dental Office page',
+        forDistributors: 'Navigate to Distributors page',
         forPatients: 'Navigate to For Patients page',
         findLocation: 'Navigate to Find Location page',
         about: 'Navigate to About page',
@@ -95,6 +97,42 @@ export const translations = {
         whiteAngelClinics: 'White Angel Clinics',
         flyingToLocation: 'Flying to location...'
       },
+      distributors: {
+        hero: {
+          title: 'Join Our Success Story',
+          subtitle: 'Partner with White Angel and bring revolutionary teeth whitening technology to your market. Discover the opportunities awaiting you as an authorized distributor.'
+        },
+        form: {
+          title: 'Become a Distributor',
+          subtitle: 'Fill out the form below and our team will contact you within 24 hours to discuss partnership opportunities.',
+          fields: {
+            fullName: 'Full Name',
+            phone: 'Phone Number',
+            email: 'Email Address'
+          },
+          placeholders: {
+            fullName: 'Full Name *',
+            phone: 'Phone Number *',
+            email: 'Email *'
+          },
+          errors: {
+            fullNameRequired: 'Full name is required',
+            fullNameInvalid: 'Full name can only contain letters, spaces, apostrophes, and dashes',
+            phoneRequired: 'Phone number is required',
+            phoneInvalid: 'Phone must start with "05" (Israeli) or "+" (international)',
+            emailRequired: 'Email address is required',
+            emailInvalid: 'Please enter a valid email address (xyz@xyz.xyz)'
+          },
+          submitButton: 'Submit',
+          submitting: 'Submitting...',
+          successMessage: 'Thank you! We will contact you within 24 hours.',
+          errorMessage: 'Something went wrong. Please try again.'
+        },
+        contact: {
+          alternativeText: 'Prefer to contact us directly?',
+          phone: 'Phone'
+        }
+      },
       secondaryHero: {
         homeKitTitle: 'Home Kit',
         homeKitSubtitle: 'Professional whitening at home',
@@ -118,6 +156,7 @@ export const translations = {
     // Navigation
     nav: {
       forDentalOffice: 'לרופאים',
+      forDistributors: 'למפיצים',
       forPatients: 'למטופל',
       about: 'אודות',
       findLocation: 'מצא White Angel בקרבתך',
@@ -132,6 +171,7 @@ export const translations = {
       strips: 'רצועות הלבנה',
       aria: {
         forDentalOffice: 'עבור לעמוד מרפאות שיניים',
+        forDistributors: 'עבור לעמוד מפיצים',
         forPatients: 'עבור לעמוד למטופלים',
         findLocation: 'עבור לעמוד מיקום',
         about: 'עבור לעמוד אודות',
@@ -209,6 +249,42 @@ export const translations = {
         providersMap: 'מפת ספקי White Angel',
         whiteAngelClinics: 'קליניקות White Angel',
         flyingToLocation: 'טס למיקום...'
+      },
+      distributors: {
+        hero: {
+          title: 'רוצה להצטרף להצלחה שלנו?',
+          subtitle: 'היה שותף של White Angel והבא טכנולוגיית הלבנת שיניים מהפכנית לשוק שלך. גלה את ההזדמנויות המחכות לך כמפיץ מורשה.'
+        },
+        form: {
+          title: 'הפוך למפיץ',
+          subtitle: 'מלא את הטופס למטה והצוות שלנו יצור איתך קשר תוך 24 שעות כדי לדון בהזדמנויות שותפות.',
+          fields: {
+            fullName: 'שם מלא',
+            phone: 'מספר טלפון',
+            email: 'כתובת אימייל'
+          },
+          placeholders: {
+            fullName: 'שם מלא *',
+            phone: 'מספר טלפון *',
+            email: 'אימייל *'
+          },
+          errors: {
+            fullNameRequired: 'שם מלא נדרש',
+            fullNameInvalid: 'שם מלא יכול להכיל רק אותיות, רווחים, גרש וקו מחבר',
+            phoneRequired: 'מספר טלפון נדרש',
+            phoneInvalid: 'מספר טלפון חייב להתחיל ב"05" (ישראל) או "+" (בינלאומי)',
+            emailRequired: 'כתובת אימייל נדרשת',
+            emailInvalid: 'אנא הזן כתובת אימייל תקינה (xyz@xyz.xyz)'
+          },
+          submitButton: 'שליחה',
+          submitting: 'שולח...',
+          successMessage: 'תודה! נצור איתך קשר תוך 24 שעות.',
+          errorMessage: 'משהו השתבש. אנא נסה שוב.'
+        },
+        contact: {
+          alternativeText: 'מעדיף ליצור קשר ישירות?',
+          phone: 'טלפון'
+        }
       },
       secondaryHero: {
         homeKitTitle: 'קיט ביתי',

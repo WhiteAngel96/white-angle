@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Info, MapPin, User, Stethoscope } from 'lucide-react';
+import { Info, MapPin, User, Stethoscope, Package } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
 import { cn } from '@/lib/utils';
+import blueLogo from '@/assets/logo-blue.png';
 
 interface MobileNavItem {
   id: string;
@@ -19,7 +20,7 @@ export const MobileBottomNav: React.FC = () => {
   const { isHebrew } = useLanguage();
   const { t } = useTranslation();
 
-  // Navigation items in LTR order: For Dentist | For Patient | Find Us | About | Home (Logo)
+  // Navigation items in LTR order: For Dentist | For Distributors | For Patient | Find Us | About | Home (Logo)
   const navItems: MobileNavItem[] = [
     {
       id: 'dentist',
@@ -27,6 +28,13 @@ export const MobileBottomNav: React.FC = () => {
       href: '/dental-office',
       icon: Stethoscope,
       ariaLabelKey: 'nav.aria.forDentalOffice'
+    },
+    {
+      id: 'distributors',
+      labelKey: 'nav.forDistributors',
+      href: '/distributors',
+      icon: Package,
+      ariaLabelKey: 'nav.aria.forDistributors'
     },
     {
       id: 'patients',
@@ -113,12 +121,12 @@ export const MobileBottomNav: React.FC = () => {
               aria-current={active ? 'page' : undefined}
             >
               {/* Icon or Logo */}
-              <div className="flex items-center justify-center w-5 h-5 mb-0.5">
+              <div className="flex items-center justify-center w-12 h-12 mb-0.5">
                 {item.isLogo ? (
                   <img 
-                    src="/src/assets/white-angel-logo.png" 
+                    src={blueLogo} 
                     alt="White Angel"
-                    className="w-5 h-5 object-contain"
+                    className="h-12 w-auto md:h-12 object-contain"
                   />
                 ) : Icon ? (
                   <Icon 

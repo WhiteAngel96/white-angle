@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 
@@ -12,16 +11,21 @@ export const SecondaryHero: React.FC = () => {
         {/* Home Kit Whitening Block */}
         <div className="relative group overflow-hidden">
           <div className="absolute inset-0 bg-[url('/src/assets/home-kit.jpg')] bg-cover bg-center"></div>
-          <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-8">
+
+          <div className="relative z-10 h-full flex flex-col justify-center items-center text-center p-8">
             <div className="max-w-md">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4 uppercase">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4 uppercase text-navy">
                 {t('pages.secondaryHero.homeKitTitle')}
               </h3>
-              <div className="w-16 h-px bg-white/60 mx-auto mb-6"></div>
-              <p className="text-lg font-light mb-8 tracking-wide">
+              <div className="w-16 h-px bg-navy mx-auto mb-6"></div>
+              <p className="text-lg font-light mb-8 tracking-wide text-navy">
                 {t('pages.secondaryHero.homeKitSubtitle')}
               </p>
-              <Button asChild variant="cta" size="lg" className="text-white shadow-2xl hover:shadow-cta-light-blue/30">
+              <Button
+                asChild
+                size="lg"
+                className="min-w-[180px] bg-white text-navy font-semibold border-2 border-navy hover:bg-navy hover:text-white transition-colors"
+              >
                 <Link to="/patients#home-kit-whitening">
                   {t('pages.secondaryHero.homeKitButton')}
                 </Link>
@@ -33,16 +37,21 @@ export const SecondaryHero: React.FC = () => {
         {/* Clinic Whitening Block */}
         <div className="relative group overflow-hidden">
           <div className="absolute inset-0 bg-[url('/src/assets/clinic-interior.jpg')] bg-cover bg-center"></div>
-          <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-8">
+
+          <div className="relative z-10 h-full flex flex-col justify-center items-center text-center p-8">
             <div className="max-w-md">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4 uppercase">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4 uppercase text-navy">
                 {t('pages.secondaryHero.clinicTitle')}
               </h3>
-              <div className="w-16 h-px bg-white/60 mx-auto mb-6"></div>
-              <p className="text-lg font-light mb-8 tracking-wide">
+              <div className="w-16 h-px bg-navy mx-auto mb-6"></div>
+              <p className="text-lg font-light mb-8 tracking-wide text-navy">
                 {t('pages.secondaryHero.clinicSubtitle')}
               </p>
-              <Button asChild variant="cta" size="lg" className="text-white shadow-2xl hover:shadow-cta-light-blue/30">
+              <Button
+                asChild
+                size="lg"
+                className="min-w-[180px] bg-white text-navy font-semibold border-2 border-navy hover:bg-navy hover:text-white transition-colors"
+              >
                 <Link to="/patients#clinic-whitening">
                   {t('pages.secondaryHero.clinicButton')}
                 </Link>

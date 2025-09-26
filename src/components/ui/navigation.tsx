@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
 import israelFlag from '@/assets/israel-flag.png';
 import usFlag from '@/assets/us-flag.png';
+import blueLogo from '@/assets/logo-blue.png';
+
 
 interface NavigationProps {
   isScrolled?: boolean;
@@ -26,6 +28,10 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
         { label: t('nav.inOfficeProducts'), href: '/dental-office#in-office' },
         { label: t('nav.otherProducts'), href: '/dental-office#other' }
       ]
+    },
+    { 
+      label: t('nav.forDistributors'), 
+      href: '/distributors'
     },
     { 
       label: t('nav.forPatients'), 
@@ -51,11 +57,11 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="/src/assets/white-angel-logo.png" 
-              alt="White Angel"
-              className="h-12 md:h-16"
-            />
+          <img 
+             src={blueLogo} 
+             alt="White Angel"
+              className="h-28 md:h-36"
+              />
           </Link>
 
           {/* Desktop Navigation */}
@@ -68,17 +74,15 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
-                  to={item.href}
-                  className={`flex items-center space-x-1 font-medium transition-colors ${
-                    isScrolled 
-                      ? 'text-cta-light-blue hover:text-cta-light-blue-hover' 
-                      : 'text-cta-light-blue hover:text-white'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                </Link>
-                
+                 to={item.href}
+                className={`flex items-center space-x-1 font-medium transition-colors
+                text-navy hover:text-navy`}
+              >
+                <span>{item.label}</span>
+              </Link>
+                  
+
+
                 {item.dropdown && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-lg shadow-lg py-2 animate-fade-in">
                     {item.dropdown.map((dropdownItem) => (
