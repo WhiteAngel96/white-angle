@@ -22,7 +22,7 @@ const Patients = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Handle initial hash navigation when component mounts
     const hash = window.location.hash;
     if (hash) {
@@ -31,17 +31,16 @@ const Patients = () => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          // Account for mobile (secondary nav only) vs desktop (header + secondary nav)
-          const offset = window.innerWidth >= 1024 ? 140 : 80; // Desktop: 80px header + 60px secondary nav, Mobile: 80px secondary nav only
+          const offset = window.innerWidth >= 1024 ? 140 : 80; 
           const offsetTop = element.offsetTop - offset;
           window.scrollTo({
             top: offsetTop,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
         }
       }, 200);
     }
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -49,19 +48,18 @@ const Patients = () => {
     { id: 'clinic-whitening', label: t('nav.clinicWhitening'), icon: Building2 },
     { id: 'home-kit-whitening', label: t('nav.homeKit'), icon: Home },
     { id: 'desensitizer', label: t('nav.desensitizer'), icon: Shield },
-    { id: 'strips', label: t('nav.strips'), icon: Zap }
+    { id: 'strips', label: t('nav.strips'), icon: Zap },
   ];
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      // Account for mobile (secondary nav only) vs desktop (header + secondary nav)
-      const offset = window.innerWidth >= 1024 ? 140 : 80; // Desktop: 80px header + 60px secondary nav, Mobile: 80px secondary nav only
+      const offset = window.innerWidth >= 1024 ? 140 : 80;
       const offsetTop = element.offsetTop - offset;
       window.scrollTo({
         top: offsetTop,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -69,12 +67,11 @@ const Patients = () => {
   const scrollToFindLocation = () => {
     const element = document.querySelector('[data-section="find-location"]');
     if (element) {
-      // Account for mobile (secondary nav only) vs desktop (header + secondary nav)
-      const offset = window.innerWidth >= 1024 ? 140 : 80; // Desktop: 80px header + 60px secondary nav, Mobile: 80px secondary nav only
+      const offset = window.innerWidth >= 1024 ? 140 : 80;
       const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({
         top: offsetTop,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -84,7 +81,7 @@ const Patients = () => {
       <Navigation isScrolled={isScrolled} />
       <MobileBottomNav />
       <MobileLanguageSwitch />
-      
+
       {/* Secondary Navigation */}
       <SecondaryNavigation
         items={navigationItems}
@@ -92,22 +89,31 @@ const Patients = () => {
         onSectionClick={scrollToSection}
       />
 
-      {/* Hero Section - Title with proper spacing below secondary nav */}
-      <section className="pt-6 pb-8 lg:pt-24 lg:pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10 w-full max-w-full overflow-x-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 lg:mb-12 animate-fade-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4 lg:mb-4">
-              {t('pages.patients.heroTitle')}
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 lg:mb-8">
-              {t('pages.patients.heroSubtitle')}
-            </p>
-            <Button variant="cta" size="lg" className="mb-4 lg:mb-6" onClick={scrollToFindLocation}>
-              {t('pages.patients.findLocationButton')}
-            </Button>
-          </div>
-        </div>
-      </section>
+   {/* Hero Section - Title with proper spacing below secondary nav */}
+   <section 
+  className="pt-28 lg:pt-48 pb-8 lg:pb-16 bg-gradient-to-br from-primary/5 to-soft-aqua/10 w-full max-w-full overflow-x-hidden"
+>
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-8 lg:mb-12 animate-fade-up">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4 lg:mb-4">
+        {t('pages.patients.heroTitle')}
+      </h1>
+      <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 lg:mb-8">
+        {t('pages.patients.heroSubtitle')}
+      </p>
+      <Button 
+        variant="cta" 
+        size="lg" 
+        className="mb-4 lg:mb-6" 
+        onClick={scrollToFindLocation}
+      >
+        {t('pages.patients.findLocationButton')}
+      </Button>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Before/After Carousel */}
       <BeforeAfterCarousel />
@@ -119,11 +125,10 @@ const Patients = () => {
             <div className="animate-fade-up">
               <h2 className="text-4xl font-bold text-navy mb-6">Clinic Whitening</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Get professional-strength whitening with immediate, dramatic results. 
-                Our in-office treatment uses the highest concentration formulas available, 
+                Get professional-strength whitening with immediate, dramatic results.
+                Our in-office treatment uses the highest concentration formulas available,
                 delivering up to 8 shades whiter in just one session.
               </p>
-              
               <div className="space-y-4 mb-8">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2" />
@@ -147,14 +152,12 @@ const Patients = () => {
                   </div>
                 </div>
               </div>
-
               <Button variant="cta" size="lg" onClick={scrollToFindLocation}>
                 Find a Clinic
               </Button>
             </div>
-
             <div className="relative">
-              <img 
+              <img
                 src={clinicImage}
                 alt="Modern dental clinic with professional whitening equipment"
                 className="w-full rounded-2xl shadow-2xl"
@@ -169,21 +172,19 @@ const Patients = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 lg:order-1 relative">
-              <img 
+              <img
                 src={homeKitImage}
                 alt="White Angel home whitening kit with professional-grade products"
                 className="w-full rounded-2xl shadow-2xl"
               />
             </div>
-
             <div className="order-1 lg:order-2 animate-fade-up">
               <h2 className="text-4xl font-bold text-navy mb-6">Home Kit Whitening</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Professional whitening from the comfort of your home. Our take-home kits 
-                feature the same advanced formulations used in dental offices, with 
+                Professional whitening from the comfort of your home. Our take-home kits
+                feature the same advanced formulations used in dental offices, with
                 convenient application for your busy lifestyle.
               </p>
-              
               <div className="space-y-4 mb-8">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-secondary rounded-full mt-2" />
@@ -207,7 +208,6 @@ const Patients = () => {
                   </div>
                 </div>
               </div>
-
               <Button variant="cta" size="lg" onClick={scrollToFindLocation}>
                 Find a Clinic
               </Button>
@@ -225,7 +225,6 @@ const Patients = () => {
               Minimize sensitivity and maximize comfort during and after your whitening treatment.
             </p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -255,7 +254,6 @@ const Patients = () => {
               Convenient, pre-measured strips for touch-ups and maintenance between professional treatments.
             </p>
           </div>
-
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -307,6 +305,7 @@ const Patients = () => {
           </div>
         </div>
       </section>
+
       <div data-section="find-location">
         <FindLocation />
       </div>

@@ -20,11 +20,11 @@
     --soft-aqua-foreground: 218 90% 15%;
     
     /* CTA Light Blue - Optimized for accessibility and video backgrounds */
-    --cta-light-blue: 200 100% 65%; /* #52C7F5 - Accessible light blue */
+    --cta-light-blue: 200 100% 65%; /* #52C7F5 */
     --cta-light-blue-foreground: 0 0% 100%;
-    --cta-light-blue-hover: 200 100% 55%; /* #29B8F0 - Darker hover state */
+    --cta-light-blue-hover: 200 100% 55%; /* #29B8F0 */
     
-    --navy: 217 100% 35%; /* #0056B3 - Deep Navy Blue */
+    --navy: 217 100% 35%; /* #0056B3 */
     --navy-foreground: 0 0% 100%;
     
     /* Base system colors */
@@ -49,7 +49,7 @@
     
     --radius: 0.75rem;
     
-    /* Custom gradients */
+    /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-luxury: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-soft: linear-gradient(135deg, hsl(var(--soft-aqua)), hsl(var(--background)));
@@ -68,28 +68,20 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -129,40 +121,18 @@
     font-family: 'Arial', 'Tahoma', sans-serif;
   }
   
-  /* Prevent horizontal scroll on all containers */
-  .container {
+  /* Prevent horizontal scroll */
+  .container, section, .flex, button {
     max-width: 100%;
     overflow-x: hidden;
   }
   
-  /* Ensure all sections respect viewport width */
-  section {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  /* Fix for any elements that might extend beyond viewport */
-  [class*="min-w-"] {
-    max-width: 100%;
-  }
-  
-  /* Ensure all flex containers respect viewport width */
-  .flex {
-    max-width: 100%;
-  }
-  
-  /* Prevent buttons from causing horizontal overflow */
-  button {
-    max-width: 100%;
-  }
-  
-  /* Ensure all images respect container width */
   img {
     max-width: 100%;
     height: auto;
   }
   
-  /* CRITICAL: Mobile bottom navigation must NEVER animate or move */
+  /* Mobile bottom navigation - fixed without animation */
   nav.fixed.bottom-0,
   nav[class*="fixed"][class*="bottom-0"] {
     position: fixed !important;
@@ -180,119 +150,51 @@
     animation: none !important;
     transform: none !important;
   }
+
+  /* ✅ Secondary navigation bar (For Patients page) */
+  .secondary-nav {
+    position: sticky;
+    top: 64px; /* עדכן כאן אם ההאדר שלך גבוה יותר */
+    z-index: 40;
+    background: white;
+    border-bottom: 1px solid hsl(var(--border));
+  }
 }
 
 @layer utilities {
-  /* Luxury animations */
-  .animate-fade-up {
-    animation: fade-up 0.8s ease-out;
-  }
-  
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out;
-  }
-  
-  .animate-slide-in {
-    animation: slide-in 0.8s ease-out;
-  }
-  
-  .animate-slide-in-right {
-    animation: slide-in-right 0.4s ease-out;
-  }
+  .animate-fade-up { animation: fade-up 0.8s ease-out; }
+  .animate-fade-in { animation: fade-in 0.6s ease-out; }
+  .animate-slide-in { animation: slide-in 0.8s ease-out; }
+  .animate-slide-in-right { animation: slide-in-right 0.4s ease-out; }
   
   .hover-lift {
     transition: var(--transition-smooth);
   }
-  
   .hover-lift:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-luxury);
   }
   
-  .luxury-gradient {
-    background: var(--gradient-luxury);
-  }
-  
-  .soft-gradient {
-    background: var(--gradient-soft);
-  }
-  
-  .overlay-gradient {
-    background: var(--gradient-overlay);
-  }
-  
+  .luxury-gradient { background: var(--gradient-luxury); }
+  .soft-gradient { background: var(--gradient-soft); }
+  .overlay-gradient { background: var(--gradient-overlay); }
   .glass-effect {
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
-  /* Mobile body padding to account for bottom nav */
   @media (max-width: 1023px) {
-    body {
-      padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
-    }
+    body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
   }
   
-  /* Hide scrollbar while maintaining functionality */
-  .scrollbar-hide {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
-  }
-  
-  /* Touch scroll behavior */
-  .touch-pan-x {
-    touch-action: pan-x;
-  }
-  
-  /* Mobile navigation safe area */
-  .safe-area-pb {
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .touch-pan-x { touch-action: pan-x; }
+  .safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0px); }
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-in { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slide-in-right { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }

@@ -27,30 +27,29 @@ export const SecondaryNavigation: React.FC<SecondaryNavigationProps> = ({
   // Scroll active item into view when it changes
   useEffect(() => {
     if (scrollContainerRef.current) {
-      const activeButton = scrollContainerRef.current.querySelector(`[data-section="${activeSection}"]`);
+      const activeButton = scrollContainerRef.current.querySelector(
+        `[data-section="${activeSection}"]`
+      );
       if (activeButton) {
         activeButton.scrollIntoView({
           behavior: 'smooth',
           block: 'nearest',
-          inline: 'center'
+          inline: 'center',
         });
       }
     }
   }, [activeSection]);
 
   return (
-    <div 
+    <div
       className={cn(
-        'sticky z-40 bg-white/95 backdrop-blur-md border-b border-border w-full',
-        // Mobile: stick to top (no header), Desktop: stick below header (80px)
+        // ✅ fixed navigation bar
+        'fixed z-40 bg-white border-b border-border w-full',
+        // מובייל: top-0 (כי אין header)
+        // דסקטופ: top-20 (80px אחרי ההאדר הראשי)
         'top-0 lg:top-20',
         className
       )}
-      style={{
-        position: 'sticky',
-        zIndex: 40,
-        width: '100%'
-      }}
     >
       <div className="container mx-auto px-4 w-full max-w-full">
         <nav className="py-3">
@@ -58,20 +57,17 @@ export const SecondaryNavigation: React.FC<SecondaryNavigationProps> = ({
             ref={scrollContainerRef}
             className={cn(
               'flex overflow-x-auto scrollbar-hide scroll-smooth touch-pan-x w-full max-w-full',
-              // RTL: right-aligned, LTR: left-aligned on mobile
-              isHebrew ? 'justify-end lg:justify-center' : 'justify-start lg:justify-center'
+              isHebrew
+                ? 'justify-end lg:justify-center'
+                : 'justify-start lg:justify-center'
             )}
             dir={isHebrew ? 'rtl' : 'ltr'}
-            style={{
-              maxWidth: '100%',
-              width: '100%'
-            }}
           >
             <div className="flex gap-2 bg-background/50 backdrop-blur-sm rounded-full p-2 border border-border/50 min-w-max">
               {items.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
-                
+
                 return (
                   <button
                     key={item.id}
