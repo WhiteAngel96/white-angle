@@ -39,11 +39,11 @@ export const HeroSection: React.FC = () => {
       <img 
         src={blueLogo} 
         alt="White Angel" 
-        className="h-64 md:h-128 mx-auto mb-[-35px]"
+        className="h-64 md:h-128 mx-auto mb-[-40px]"
       />
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0">
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-[-45px]">
         <Button 
           asChild 
             size="lg" 
@@ -89,11 +89,11 @@ export const HeroSection: React.FC = () => {
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide mb-6 text-navy">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide mb-6 text-navy">
             {t('hero.ourStory')}
              </h2>
               <div className="w-20 h-px bg-navy/60 mx-auto mb-8"></div>
-                <p className="text-lg md:text-xl font-light mb-10 leading-relaxed tracking-wide text-navy">
+                <p className="text-lg md:text-2xl font-medium mb-10 leading-relaxed tracking-wide text-navy">
                   {t('hero.storyDescription')}
                 </p>
 

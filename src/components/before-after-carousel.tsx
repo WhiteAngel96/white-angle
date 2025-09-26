@@ -112,7 +112,7 @@ export const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({ images
             </div>
           </div>
         </div>
-      </div>
+
     </section>
   );
 };
