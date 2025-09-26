@@ -39,46 +39,45 @@ export const HeroSection: React.FC = () => {
       <img 
         src={blueLogo} 
         alt="White Angel" 
-        className="h-64 md:h-128 mx-auto mb-[-40px]"
-      />
+        className="h-64 md:h-128 mx-auto mb-[-60px] md:mb-[-40px]"
+        />
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-[-45px]">
-        <Button 
-          asChild 
-            size="lg" 
-            className="min-w-[180px] bg-white text-navy font-semibold border-2 border-navy hover:bg-navy hover:text-white transition-colors"
-             >
-            <Link to="/dental-office">
-            {t('For Dentists')}
-          </Link>
-        </Button>
-        
-        <Button 
-        asChild 
-        size="lg" 
-        className="min-w-[180px] bg-white text-navy font-semibold border-2 border-navy hover:bg-navy hover:text-white transition-colors"
-        >
-       <Link to="/patients">
-          {t('For Patients')}
-        </Link>
-        </Button>
-            </div>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-[-70px] md:mb-[-25px]">
+            <Button 
+              asChild 
+              size="lg" 
+              className="min-w-[180px] bg-white text-navy font-semibold border-2 border-navy hover:bg-navy hover:text-white transition-colors"
+            >
+              <Link to="/dental-office">
+                {t('For Dentists')}
+              </Link>
+            </Button>
+            
+            <Button 
+              asChild 
+              size="lg" 
+              className="min-w-[180px] bg-white text-navy font-semibold border-2 border-navy hover:bg-navy hover:text-white transition-colors"
+            >
+              <Link to="/patients">
+                {t('For Patients')}
+              </Link>
+            </Button>
+          </div>
           </div>
         </div>
       </section>
 
 
       {/* Second Banner - About Us Video Banner */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Background Video with Overlay */}
+      <section className="relative h-[70vh] flex md:items-center items-end justify-center overflow-hidden pb-16 md:pb-0">
         <div className="absolute inset-0 z-0">
           <video 
             autoPlay 
             muted 
             loop 
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[35%] md:object-center"
           >
             <source src="/src/assets/lifestyle-video.mp4" type="video/mp4" />
           </video>
@@ -93,7 +92,7 @@ export const HeroSection: React.FC = () => {
             {t('hero.ourStory')}
              </h2>
               <div className="w-20 h-px bg-navy/60 mx-auto mb-8"></div>
-                <p className="text-lg md:text-2xl font-medium mb-10 leading-relaxed tracking-wide text-navy">
+                <p className="text-lg md:text-2xl font-medium mb-6 leading-relaxed tracking-wide text-navy">
                   {t('hero.storyDescription')}
                 </p>
 
@@ -111,12 +110,7 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
-          </div>
-        </div>
+
       </section>
     </>
   );

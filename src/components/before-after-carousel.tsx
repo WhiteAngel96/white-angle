@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card } from '@/components/ui/card';
 import beforeAfterImage from '@/assets/before-after.jpg';
+import clinicInteriorImage from '@/assets/clinic-interior.jpg';
+import homeKitImage from '@/assets/home-kit.jpg';
+import heroImage from '@/assets/hero-image.jpg';
 
 interface BeforeAfterImage {
   id: number;
-  image: string;
+  before: string;
+  after: string;
   alt: string;
 }
 
@@ -19,13 +23,27 @@ export const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({ images
   const [api, setApi] = useState<any>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const intervalRefs = useRef<Map<number, NodeJS.Timeout>>(new Map());
 
   // Default images if none provided (up to 20 images)
-  const defaultImages: BeforeAfterImage[] = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    image: beforeAfterImage,
-    alt: `Before and after teeth whitening result ${i + 1}`
-  }));
+  const imagePairs = [
+    { before: beforeAfterImage, after: clinicInteriorImage },
+    { before: clinicInteriorImage, after: homeKitImage },
+    { before: homeKitImage, after: heroImage },
+    { before: heroImage, after: beforeAfterImage },
+  ];
+
+  const defaultImages: BeforeAfterImage[] = Array.from({ length: 12 }, (_, i) => {
+    const pair = imagePairs[i % imagePairs.length];
+    return {
+      id: i + 1,
+      before: pair.before,
+      after: pair.after,
+      alt: `Before and after teeth whitening result ${i + 1}`
+    };
+  });
 
   const carouselImages = images || defaultImages;
 
@@ -41,6 +59,97 @@ export const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({ images
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+
+  // Mobile auto-alternation effect
+  useEffect(() => {
+    const startMobileAlternation = (itemId: number) => {
+      if (intervalRefs.current.has(itemId)) {
+        clearInterval(intervalRefs.current.get(itemId)!);
+      }
+
+      const interval = setInterval(() => {
+        // Trigger re-render to alternate between before/after
+        setVisibleItems(prev => new Set(prev));
+      }, 2000);
+
+      intervalRefs.current.set(itemId, interval);
+    };
+
+    const stopMobileAlternation = (itemId: number) => {
+      if (intervalRefs.current.has(itemId)) {
+        clearInterval(intervalRefs.current.get(itemId)!);
+        intervalRefs.current.delete(itemId);
+      }
+    };
+
+    // Start alternation for visible items on mobile
+    if (visibleItems.size > 0) {
+      visibleItems.forEach(itemId => {
+        startMobileAlternation(itemId);
+      });
+    }
+
+    // Cleanup on unmount
+    return () => {
+      intervalRefs.current.forEach((interval) => clearInterval(interval));
+      intervalRefs.current.clear();
+    };
+  }, [visibleItems]);
+
+  // Intersection Observer for mobile auto-alternation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const itemId = parseInt(entry.target.getAttribute('data-item-id') || '0');
+          if (entry.isIntersecting) {
+            setVisibleItems(prev => new Set(prev).add(itemId));
+          } else {
+            setVisibleItems(prev => {
+              const newSet = new Set(prev);
+              newSet.delete(itemId);
+              return newSet;
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const items = document.querySelectorAll('[data-item-id]');
+    items.forEach(item => observer.observe(item));
+
+    return () => {
+      items.forEach(item => observer.unobserve(item));
+    };
+  }, [carouselImages]);
+
+  const handleMouseEnter = (itemId: number) => {
+    setHoveredItem(itemId);
+  };
+
+  const handleMouseLeave = (itemId: number) => {
+    setHoveredItem(null);
+  };
+
+  const isShowingAfter = (itemId: number) => {
+    const isMobile = window.innerWidth < 768;
+  
+    // Desktop: show after image only on hover
+    if (!isMobile) {
+      return hoveredItem === itemId;
+    }
+  
+    // Mobile: alternate between before/after automatically
+    if (visibleItems.has(itemId)) {
+      const now = Date.now();
+      const cycleTime = 3000; // 3 שניות
+      const cyclePosition = (now % (cycleTime * 2)) / cycleTime;
+      return cyclePosition >= 1;
+    }
+  
+    return false;
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -69,12 +178,31 @@ export const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({ images
                   key={item.id} 
                   className="pl-2 md:pl-4 basis-full md:basis-1/3 lg:basis-1/5"
                 >
-                  <Card className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                    <div className="aspect-[4/3] relative">
+                  <Card 
+                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                    onMouseEnter={() => handleMouseEnter(item.id)}
+                    onMouseLeave={() => handleMouseLeave(item.id)}
+                  >
+                    <div 
+                      className="aspect-[4/3] relative"
+                      data-item-id={item.id}
+                    >
+                      {/* Before Image */}
                       <img 
-                        src={item.image}
-                        alt={item.alt}
-                        className="w-full h-full object-cover"
+                        src={item.before}
+                        alt={`${item.alt} - Before`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                          isShowingAfter(item.id) ? 'opacity-0' : 'opacity-100'
+                        }`}
+                      />
+                      
+                      {/* After Image */}
+                      <img 
+                        src={item.after}
+                        alt={`${item.alt} - After`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                          isShowingAfter(item.id) ? 'opacity-100' : 'opacity-0'
+                        }`}
                       />
                     </div>
                   </Card>
@@ -83,10 +211,9 @@ export const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({ images
             </CarouselContent>
             
             {/* Navigation buttons - hidden on mobile, visible on desktop */}
-            <CarouselPrevious className="hidden md:flex -left-12 lg:-left-16" />
-            <CarouselNext className="hidden md:flex -right-12 lg:-right-16" />
+            <CarouselPrevious className="hidden md:flex -left-8 lg:-left-12" />
+            <CarouselNext className="hidden md:flex -right-6 lg:-right-8" />
           </Carousel>
-
           {/* Pagination dots - visible on mobile only */}
           <div className="flex justify-center mt-6 md:hidden">
             <div className="flex space-x-2">
@@ -112,7 +239,7 @@ export const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({ images
             </div>
           </div>
         </div>
-
+      </div>
     </section>
   );
 };

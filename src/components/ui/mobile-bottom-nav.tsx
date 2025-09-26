@@ -104,29 +104,24 @@ export const MobileBottomNav: React.FC = () => {
           const active = isActive(item.href);
           
           return (
-            <Link
+                        <Link
               key={item.id}
               to={item.href}
               className={cn(
-                'flex flex-col items-center justify-center min-w-0 flex-1 px-1 py-1.5 rounded-md',
+                'flex flex-col items-center justify-center min-w-0 flex-1 px-1 py-1 rounded-md',
                 'focus:outline-none focus:ring-2 focus:ring-cta-light-blue focus:ring-offset-1',
                 getActiveClass(item.href)
               )}
-              style={{
-                transition: 'none',
-                transform: 'none',
-                animation: 'none'
-              }}
               aria-label={t(item.ariaLabelKey)}
               aria-current={active ? 'page' : undefined}
             >
               {/* Icon or Logo */}
-              <div className="flex items-center justify-center w-12 h-12 mb-0.5">
+              <div className="flex items-center justify-center w-8 h-8 mb-0.5">
                 {item.isLogo ? (
                   <img 
                     src={blueLogo} 
                     alt="White Angel"
-                    className="h-12 w-auto md:h-12 object-contain"
+                    className="h-8 w-auto object-contain"
                   />
                 ) : Icon ? (
                   <Icon 
@@ -135,19 +130,14 @@ export const MobileBottomNav: React.FC = () => {
                   />
                 ) : null}
               </div>
-              
+
               {/* Label */}
               <span className={cn(
-                'text-xs font-medium leading-tight text-center max-w-full truncate',
+                'text-[10px] font-medium leading-tight text-center max-w-full truncate',
                 active ? 'font-semibold' : 'font-normal'
               )}>
                 {t(item.labelKey)}
               </span>
-              
-              {/* Active indicator */}
-              {active && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-cta-light-blue rounded-full" />
-              )}
             </Link>
           );
         })}
