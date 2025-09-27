@@ -2,9 +2,9 @@ export const translations = {
   en: {
     // Navigation
     nav: {
-      forDentalOffice: 'For Dentist',
+      forDentalOffice: 'For Dentists',
       forDistributors: 'For Distributors',
-      forPatients: 'For Patient',
+      forPatients: 'For Patients',
       about: 'About',
       findLocation: 'Find White Angel Near You',
       findUs: 'Find Us',
@@ -157,7 +157,7 @@ export const translations = {
     nav: {
       forDentalOffice: 'לרופאים',
       forDistributors: 'למפיצים',
-      forPatients: 'למטופל',
+      forPatients: 'למטופלים',
       about: 'אודות',
       findLocation: 'מצא White Angel בקרבתך',
       findUs: 'מצא אותנו',

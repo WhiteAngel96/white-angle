@@ -66,13 +66,13 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <div 
-                key={item.label} 
-                className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
+          {navItems.map((item, index) => (
+          <div 
+            key={item.label} 
+            className={`relative ${isHebrew && index === 1 ? 'ml-8' : 'ml-8'}`}
+            onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
                 <Link
                  to={item.href}
                 className={`flex items-center space-x-1 font-medium transition-colors
@@ -84,8 +84,9 @@ export const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) =>
 
 
                 {item.dropdown && activeDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-lg shadow-lg py-2 animate-fade-in">
-                    {item.dropdown.map((dropdownItem) => (
+                  <div className={`absolute top-full mt-2 w-64 bg-background border border-border rounded-lg shadow-lg py-2 animate-fade-in ${
+                          isHebrew ? 'right-0' : 'left-0'
+                        }`}>  {item.dropdown.map((dropdownItem) => (
                       <Link
                         key={dropdownItem.label}
                         to={dropdownItem.href}
