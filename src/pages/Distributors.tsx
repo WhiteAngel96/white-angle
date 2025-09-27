@@ -5,10 +5,18 @@ import { MobileLanguageSwitch } from '@/components/ui/mobile-language-switch';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
+//assets
 import { useTranslation } from '@/hooks/useTranslation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import clinicInteriorImage from '@/assets/clinic-interior.jpg';
 import distributorBanner from '@/assets/distributor-banner.png';
+import desiBlue from '@/assets/desi-blue.png';
+import extra46Open from '@/assets/extra46-open.png';
+import homeKitOpen15 from '@/assets/home-kit-open15.png';
+import homeKitOpen20 from '@/assets/home-kit-open20.png';
+import pro33Open from '@/assets/pro33-open.png';
+import stripsOpen from '@/assets/strips-open.png';
+
 
 
 const Distributors = () => {
@@ -122,9 +130,6 @@ const Distributors = () => {
                 Join the White Angel family and bring professional teeth whitening 
                 excellence to dental professionals in your region.
               </p>
-              <Button variant="hero" size="lg">
-                Become a Partner
-              </Button>
             </div>
           </div>
         </section>
