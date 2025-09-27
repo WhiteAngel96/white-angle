@@ -8,6 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Home, Building2, Lightbulb, Shield, Stethoscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import dentistBanner from '@/assets/dentist-banner2.png';
+
 
 const DentalOffice = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -92,22 +94,37 @@ const DentalOffice = () => {
       <MobileLanguageSwitch />
       
       {/* Hero Banner */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-navy to-primary">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-white animate-fade-up">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              For Dental Professionals
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Complete whitening solutions for your practice. Professional products, 
-              proven results, exceptional patient satisfaction.
-            </p>
-            <Button variant="hero" size="lg">
-              Request Product Catalog
-            </Button>
-          </div>
-        </div>
-      </section>
+<section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src={dentistBanner} 
+      alt="Dental Office Banner" 
+      className="w-full h-full object-cover 
+      object-[10%_10%]   /* mobile: shift right + 10% down */
+      md:object-[center_10%] /* desktop: center horizontally, keep 10% down */
+    "      />
+    {/* Optional dark overlay so text is clear */}
+    <div className="absolute inset-0 bg-black/30"></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-4 text-center text-white">
+    <div className="animate-fade-up">
+      <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+        For Dental Professionals
+      </h1>
+      <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto drop-shadow-md">
+        Complete whitening solutions for your practice. Professional products, 
+        proven results, exceptional patient satisfaction.
+      </p>
+      <Button variant="hero" size="lg">
+        Request Product Catalog
+      </Button>
+    </div>
+  </div>
+</section>
+
 
       {/* Take Home Products */}
       <section id="take-home" className="py-20 bg-white">
